@@ -29,7 +29,7 @@ export function ProjectCard({ project }: { project: Project }) {
             <Badge key={tech}>{tech}</Badge>
           ))}
         </div>
-        <div className="mt-6 flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.1em] text-signal opacity-0 transition-opacity group-hover:opacity-100">
+        <div className="mt-6 flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.1em] text-ink/40 transition-colors group-hover:text-signal">
           Read case study
           <span aria-hidden>&rarr;</span>
         </div>

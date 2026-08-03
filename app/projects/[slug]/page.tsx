@@ -37,7 +37,7 @@ export default async function ProjectPage({
   if (!project) notFound();
 
   return (
-    <article className="mx-auto max-w-3xl space-y-20">
+    <article className="mx-auto max-w-3xl space-y-14 sm:space-y-20">
       <SectionReveal className="space-y-5">
         <div className="flex flex-wrap items-center gap-2">
           <p className="inline-flex items-center border-2 border-ink bg-lime px-3 py-1 font-mono text-xs uppercase tracking-[0.15em] text-ink">

@@ -83,7 +83,7 @@ export default function RootLayout({
             </div>
           </nav>
         </header>
-        <main className="mx-auto max-w-6xl px-6 py-16">{children}</main>
+        <main className="mx-auto max-w-6xl px-6 py-10 sm:py-16">{children}</main>
         <footer className="mx-auto flex max-w-6xl items-center justify-between px-6 py-10 font-mono text-xs text-ink/35">
           <span>© {new Date().getFullYear()} Zanuar.</span>
           <div className="flex gap-4 uppercase tracking-[0.1em]">

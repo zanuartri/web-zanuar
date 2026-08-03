@@ -45,7 +45,7 @@ export const projects: Project[] = [
       'The agent runs on a QA-tuned system prompt (a "QA soul"), grounded in RAG over a set of internal docs (requirements, test plans) embedded and stored in PostgreSQL. A LangGraph state machine routes each incoming message through a lightweight intent step, deciding whether the user wants a Q&A answer, a test-analysis breakdown, or a test run. For test analysis, the LLM\'s output is constrained to a Pydantic schema (structured nodes: title, coverage notes, risk level, children) before it ever reaches the UI, so a malformed response fails validation and gets regenerated instead of breaking the mindmap. Conversations and validated analyses are persisted in PostgreSQL, and the validated outline is rendered as an interactive mindmap with Markmap. Test-run requests trigger a tool call that executes the relevant test and folds the result back into the same conversation, so failures can be discussed in-thread instead of a separate log.',
     architecture: {
       entry: 'Chat message',
-      router: 'Intent router (LangGraph)',
+      router: 'Intent router',
       branches: [
         {
           label: 'Q&A',
