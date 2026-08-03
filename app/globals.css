@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: theme('fontFamily.display');
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fbfbf7;
+  color: #111113;
+}
+
+::selection {
+  background-color: #d7ff3f;
+  color: #111113;
+}
+
+/* halftone dot texture, bolder than a subtle blueprint grid */
+.grid-texture {
+  background-image: radial-gradient(rgba(17, 17, 19, 0.14) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-drift,
+  .animate-drift-slow,
+  .animate-blink,
+  .animate-grain {
+    animation: none !important;
+  }
+}

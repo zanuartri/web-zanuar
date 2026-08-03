@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    expose:
+      - "3000"
+    # ponytail: no reverse proxy wired yet — add nginx/caddy service + labels
+    # when you're ready to route subdomains (e.g. demo.example.com, chat.example.com).
+    environment:
+      - NODE_ENV=production

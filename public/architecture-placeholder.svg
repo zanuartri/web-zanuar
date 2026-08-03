@@ -1,0 +1,57 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2440ff" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#111113" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="#fbfbf7"/>
+  <rect x="1" y="1" width="1198" height="673" fill="none" stroke="#111113" stroke-width="2"/>
+
+  <!-- graph edges -->
+  <g stroke="url(#edge)" stroke-width="2" fill="none">
+    <path d="M170 340 L400 200"/>
+    <path d="M170 340 L400 340"/>
+    <path d="M170 340 L400 480"/>
+    <path d="M400 200 L640 340"/>
+    <path d="M400 340 L640 340"/>
+    <path d="M400 480 L640 340"/>
+    <path d="M640 340 L880 220"/>
+    <path d="M640 340 L880 340"/>
+    <path d="M640 340 L880 460"/>
+    <path d="M880 220 L1050 340"/>
+    <path d="M880 340 L1050 340"/>
+    <path d="M880 460 L1050 340"/>
+  </g>
+
+  <!-- nodes -->
+  <g font-family="ui-monospace, monospace" font-size="13" fill="#111113" font-weight="600">
+    <circle cx="170" cy="340" r="26" fill="#d7ff3f" stroke="#111113" stroke-width="2"/>
+    <text x="170" y="345" text-anchor="middle">chat</text>
+
+    <circle cx="400" cy="200" r="22" fill="#fbfbf7" stroke="#111113" stroke-width="2"/>
+    <text x="400" y="205" text-anchor="middle">qna</text>
+    <circle cx="400" cy="340" r="22" fill="#fbfbf7" stroke="#111113" stroke-width="2"/>
+    <text x="400" y="345" text-anchor="middle">plan</text>
+    <circle cx="400" cy="480" r="22" fill="#fbfbf7" stroke="#111113" stroke-width="2"/>
+    <text x="400" y="485" text-anchor="middle">test</text>
+
+    <circle cx="640" cy="340" r="28" fill="#2440ff" stroke="#111113" stroke-width="2"/>
+    <text x="640" y="337" text-anchor="middle" fill="#fbfbf7">validate</text>
+    <text x="640" y="352" text-anchor="middle" font-size="10" fill="#fbfbf7" fill-opacity="0.7">pydantic</text>
+
+    <circle cx="880" cy="220" r="20" fill="#fbfbf7" stroke="#111113" stroke-width="2"/>
+    <text x="880" y="225" text-anchor="middle" font-size="11">rag</text>
+    <circle cx="880" cy="340" r="20" fill="#fbfbf7" stroke="#111113" stroke-width="2"/>
+    <text x="880" y="345" text-anchor="middle" font-size="10">mindmap</text>
+    <circle cx="880" cy="460" r="20" fill="#fbfbf7" stroke="#111113" stroke-width="2"/>
+    <text x="880" y="465" text-anchor="middle" font-size="11">tool</text>
+
+    <circle cx="1050" cy="340" r="24" fill="#d7ff3f" stroke="#111113" stroke-width="2"/>
+    <text x="1050" y="345" text-anchor="middle" font-size="11">store</text>
+  </g>
+
+  <text x="600" y="600" font-family="ui-monospace, monospace" font-size="13" fill="#111113" fill-opacity="0.5" text-anchor="middle">
+    Chat &#8594; Intent Routing &#8594; RAG Retrieval &#8594; Pydantic-Validated Analysis &#8594; Mindmap / Test Tool &#8594; PostgreSQL
+  </text>
+</svg>
