@@ -1,0 +1,6 @@
+# No domain yet: serve plain HTTP on the bare IP/port.
+# Once a domain is pointed at this VPS, replace ":80" below with the domain
+# (e.g. "zanuar.dev") and Caddy will automatically provision TLS via Let's Encrypt.
+:80 {
+	reverse_proxy web:3000
+}
