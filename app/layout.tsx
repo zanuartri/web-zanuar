@@ -25,7 +25,7 @@ const mono = IBM_Plex_Mono({
   weight: ['400', '500'],
 });
 
-const siteUrl = 'https://example.com';
+const siteUrl = 'https://zanuar.dev';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
