@@ -42,7 +42,7 @@ export const projects: Project[] = [
     problem:
       'At my company, QA engineers were losing time to two things a chatbot alone doesn’t fix: answering the same requirements and coverage questions over and over, and turning test analysis into something a team will actually read instead of a wall of text. This case study is a public rebuild of that idea, scoped down and without the proprietary integrations (Notion publishing, Figma reads, internal MCP tools) that only make sense inside the company’s own stack.',
     approach:
-      'The agent runs on a QA-tuned system prompt (a "QA soul"), grounded in RAG over a set of internal docs (requirements, test plans) embedded and stored in PostgreSQL. A LangGraph state machine routes each incoming message through a lightweight intent step, deciding whether the user wants a Q&A answer, a test-analysis breakdown, or a test run. For test analysis, the LLM\'s output is constrained to a Pydantic schema (structured nodes: title, coverage notes, risk level, children) before it ever reaches the UI, so a malformed response fails validation and gets regenerated instead of breaking the mindmap. Conversations and validated analyses are persisted in PostgreSQL, and the validated outline is rendered as an interactive mindmap with Markmap. Test-run requests trigger a tool call that executes the relevant test and folds the result back into the same conversation, so failures can be discussed in-thread instead of a separate log.',
+      'The agent runs on a QA-tuned system prompt (a "QA soul"), grounded in RAG over a set of internal docs (requirements, test plans) embedded and stored in PostgreSQL. A LangGraph state machine routes each incoming message through a lightweight intent step, deciding whether the user wants a Q&A answer, a test-analysis breakdown, or a test run. For test analysis, the LLM\'s output is constrained to a Pydantic schema (structured nodes: title, coverage notes, risk level, children) before it ever reaches the UI, so a malformed response fails validation and gets regenerated instead of breaking the mindmap. Conversations and validated analyses are persisted in PostgreSQL under an anonymous session, no login required, and auto-expired after 48 hours, and the validated outline is rendered as an interactive mindmap with Markmap. Test-run requests trigger a tool call that executes the relevant test and folds the result back into the same conversation, so failures can be discussed in-thread instead of a separate log.',
     architecture: {
       entry: 'Chat message',
       router: 'Intent router',
@@ -60,7 +60,7 @@ export const projects: Project[] = [
           detail: 'Tool call executes the test, result folds back into chat',
         },
       ],
-      sink: 'PostgreSQL (conversations + analyses)',
+      sink: 'PostgreSQL (anonymous session, 48h TTL)',
     },
     demoUrl: undefined,
     githubUrl: undefined,
