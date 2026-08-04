@@ -71,6 +71,24 @@ export default function AboutPage() {
           especially where evaluation is treated as a first-class concern.
         </p>
       </SectionReveal>
+
+      <SectionReveal delay={0.15} className="space-y-2">
+        <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink/40">
+          Open Source
+        </h2>
+        <p className="text-lg leading-relaxed text-ink/65">
+          Contributed a UI fix and a small RTK bugfix for the Kiro provider to{' '}
+          <a
+            href="https://github.com/decolua/9router"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-signal underline decoration-signal/30 underline-offset-2 hover:decoration-signal"
+          >
+            9router
+          </a>
+          , merged.
+        </p>
+      </SectionReveal>
     </div>
   );
 }
