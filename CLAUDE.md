@@ -17,8 +17,10 @@ section; extend the existing one.
 
 Next.js (App Router, `output: 'standalone'`), TypeScript, Tailwind CSS,
 Framer Motion, hand-authored shadcn-style primitives in `components/ui/`
-(no external UI library). Deploys via Docker to a self-hosted VPS behind a
-reverse proxy, not Vercel, so avoid Vercel-only features.
+(no external UI library). Live at [zanuar.dev](https://zanuar.dev), deployed
+via Docker Compose to a self-hosted VPS behind Caddy (auto TLS), not Vercel,
+so avoid Vercel-only features. VPS access details live outside this repo,
+ask the user if you need to deploy something and don't have them.
 
 ## Working agreements (learned the hard way this project)
 
@@ -43,6 +45,11 @@ reverse proxy, not Vercel, so avoid Vercel-only features.
   `app/projects/[slug]/page.tsx` per project.
 - Don't push commits or open PRs without being asked. Committing locally
   when asked is fine; pushing/creating remote repos is a separate ask.
+- **`Caddyfile` is bind-mounted into the `caddy` container on the VPS.**
+  After a `git pull` there, a plain `docker compose restart caddy` (or
+  `caddy reload`) won't pick up the new file, `git`'s atomic rename orphans
+  the container's mount from the old inode. Use
+  `docker compose up -d --force-recreate caddy`.
 
 ## Key files
 

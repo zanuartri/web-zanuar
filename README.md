@@ -1,9 +1,11 @@
 # web-zanuar
 
+Live at **[zanuar.dev](https://zanuar.dev)**.
+
 Personal portfolio for an AI agent engineering career transition (QA
 Automation Engineer → AI Agent Engineer). Built with Next.js App Router,
-TypeScript, and Tailwind CSS, designed to self-host on a VPS behind a
-reverse proxy rather than deploy to Vercel.
+TypeScript, and Tailwind CSS, self-hosted on a VPS behind Caddy rather than
+deployed to Vercel.
 
 See **[DESIGN.md](./DESIGN.md)** for the visual design system and content
 rules, and **[CLAUDE.md](./CLAUDE.md)** for AI-assisted development
@@ -15,9 +17,9 @@ conventions used on this repo.
 - Framer Motion for animation
 - Hand-authored shadcn-style primitives (`components/ui/`), no external UI
   component library
-- Docker multi-stage build with `output: 'standalone'`, `docker-compose.yml`
-  scaffold for a future reverse proxy (Caddy/Nginx) and additional
-  project-demo subdomains
+- Docker multi-stage build with `output: 'standalone'`, deployed via
+  `docker-compose.yml` with a Caddy reverse proxy (automatic Let's Encrypt
+  TLS)
 
 ## Getting started
 
@@ -60,12 +62,18 @@ npm run start
 ## Docker
 
 ```bash
-docker build -t web-zanuar .
-docker compose up -d
+docker compose up -d --build
 ```
 
 The `Dockerfile` is a multi-stage build producing a minimal runtime image via
-Next.js `standalone` output. `docker-compose.yml` currently runs just the
-`web` service (not exposed on a host port); extend it with a reverse proxy
-service (Caddy or Nginx) and TLS/routing config once a domain is attached,
-plus additional services for per-project demo subdomains.
+Next.js `standalone` output. `docker-compose.yml` runs two services: `web`
+(not exposed on a host port) and `caddy` (bound to 80/443), which
+reverse-proxies to `web` and auto-provisions TLS for the hostnames listed in
+`Caddyfile`. Extend `docker-compose.yml` with additional services for
+per-project demo subdomains as those get built.
+
+**Note:** `Caddyfile` is bind-mounted into the `caddy` container. If you edit
+it after a `git pull` on the server, `docker compose restart caddy` isn't
+enough, atomic file replacement (which `git` does) orphans the container's
+mount from the old inode. Use `docker compose up -d --force-recreate caddy`
+instead.
