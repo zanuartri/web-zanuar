@@ -21,7 +21,7 @@ export function ProjectCard({ project }: { project: Project }) {
             className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full border-2 border-ink bg-lime animate-blink"
           />
         </div>
-        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink/60">
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink/85">
           {project.summary}
         </p>
         <div className="mt-6 flex flex-wrap gap-2">

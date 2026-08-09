@@ -47,7 +47,7 @@ export default function AboutPage() {
         </TerminalWindow>
       </SectionReveal>
 
-      <SectionReveal delay={0.1} className="space-y-6 text-lg leading-relaxed text-ink/65">
+      <SectionReveal delay={0.1} className="space-y-6 text-lg leading-relaxed text-ink/85">
         <p>
           I spent <span className="text-ink">6+ years</span> as a QA
           Engineer, where my job was to find the ways systems break before
@@ -76,7 +76,7 @@ export default function AboutPage() {
         <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink/40">
           Open Source
         </h2>
-        <p className="text-lg leading-relaxed text-ink/65">
+        <p className="text-lg leading-relaxed text-ink/85">
           Contributed a UI fix and a small RTK bugfix for the Kiro provider to{' '}
           <a
             href="https://github.com/decolua/9router"

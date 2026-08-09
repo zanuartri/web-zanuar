@@ -37,7 +37,7 @@ export default async function ProjectPage({
   if (!project) notFound();
 
   return (
-    <article className="mx-auto max-w-3xl space-y-14 sm:space-y-20">
+    <article className="space-y-14 sm:space-y-20">
       <SectionReveal className="space-y-5">
         <div className="flex flex-wrap items-center gap-2">
           <p className="inline-flex items-center border-2 border-ink bg-lime px-3 py-1 font-mono text-xs uppercase tracking-[0.15em] text-ink">
@@ -53,7 +53,7 @@ export default async function ProjectPage({
         <h1 className="font-display text-4xl font-medium leading-tight text-ink sm:text-5xl">
           {project.title}
         </h1>
-        <p className="max-w-xl text-lg leading-relaxed text-ink/60">
+        <p className="max-w-4xl text-lg leading-relaxed text-ink/85">
           {project.summary}
         </p>
         <div className="flex flex-wrap gap-2">
@@ -67,14 +67,14 @@ export default async function ProjectPage({
         <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink/40">
           01 / Problem
         </h2>
-        <p className="text-ink/70 leading-relaxed">{project.problem}</p>
+        <p className="max-w-4xl text-ink/85 leading-relaxed">{project.problem}</p>
       </SectionReveal>
 
       <SectionReveal className="space-y-3">
         <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink/40">
           02 / Approach
         </h2>
-        <p className="text-ink/70 leading-relaxed">{project.approach}</p>
+        <p className="max-w-4xl text-ink/85 leading-relaxed">{project.approach}</p>
       </SectionReveal>
 
       <SectionReveal className="space-y-4">

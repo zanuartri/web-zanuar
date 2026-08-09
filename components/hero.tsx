@@ -49,7 +49,7 @@ export function Hero() {
           , not just <span className="italic text-ink/40">chat.</span>
         </motion.h1>
 
-        <motion.p variants={item} className="max-w-xl text-lg leading-relaxed text-ink/60">
+        <motion.p variants={item} className="max-w-xl text-lg leading-relaxed text-ink/85">
           <span className="mr-1 inline-flex items-center rounded-md border-2 border-ink bg-lime px-1.5 py-0.5 font-mono text-base font-semibold text-ink">
             6+
           </span>
