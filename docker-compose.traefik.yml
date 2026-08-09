@@ -1,0 +1,22 @@
+# Draft: replaces the Caddy-based docker-compose.yml once the shared Traefik
+# instance (vps-infra) is up and ready to take over ports 80/443. Not applied yet -
+# see vps-infra/README.md "Migrating zanuar.dev off Caddy" for the cutover order.
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    networks:
+      - shared-infra
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=shared-infra
+      - traefik.http.routers.zanuar.rule=Host(`zanuar.dev`) || Host(`www.zanuar.dev`)
+      - traefik.http.routers.zanuar.entrypoints=websecure
+      - traefik.http.routers.zanuar.tls.certresolver=le
+      - traefik.http.services.zanuar.loadbalancer.server.port=3000
+
+networks:
+  shared-infra:
+    external: true
