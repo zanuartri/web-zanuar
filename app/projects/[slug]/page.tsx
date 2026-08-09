@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getProject, projects } from '@/lib/projects';
 import { Badge } from '@/components/ui/badge';
@@ -8,6 +9,7 @@ import { cn } from '@/lib/utils';
 import { SectionReveal } from '@/components/section-reveal';
 import { ArchitectureDiagram } from '@/components/architecture-diagram';
 import { ArchitectureFlow } from '@/components/architecture-flow';
+import { EngineeringDecisions } from '@/components/engineering-decisions';
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -36,6 +38,15 @@ export default async function ProjectPage({
   const project = getProject(slug);
   if (!project) notFound();
 
+  const sections: string[] = [];
+  if (project.problem) sections.push('Problem');
+  if (project.approach) sections.push('Approach');
+  if (project.decisions?.length) sections.push('Engineering decisions');
+  if (project.architecture || project.architectureImage) sections.push('Architecture');
+  if (project.metrics?.length) sections.push('Metrics');
+  const sectionNumber = (label: string) =>
+    String(sections.indexOf(label) + 1).padStart(2, '0');
+
   return (
     <article className="space-y-14 sm:space-y-20">
       <SectionReveal className="space-y-5">
@@ -63,41 +74,71 @@ export default async function ProjectPage({
         </div>
       </SectionReveal>
 
-      <SectionReveal className="space-y-3">
-        <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink/40">
-          01 / Problem
-        </h2>
-        <p className="max-w-4xl text-ink/85 leading-relaxed">{project.problem}</p>
-      </SectionReveal>
-
-      <SectionReveal className="space-y-3">
-        <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink/40">
-          02 / Approach
-        </h2>
-        <p className="max-w-4xl text-ink/85 leading-relaxed">{project.approach}</p>
-      </SectionReveal>
-
-      <SectionReveal className="space-y-4">
-        <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink/40">
-          03 / Architecture
-        </h2>
-        {project.architecture ? (
-          <ArchitectureFlow architecture={project.architecture} />
-        ) : (
-          project.architectureImage &&
-          project.architectureAlt && (
-            <ArchitectureDiagram
-              src={project.architectureImage}
-              alt={project.architectureAlt}
+      {project.screenshotUrl && (
+        <SectionReveal>
+          <div className="overflow-hidden rounded-xl border-2 border-ink shadow-[6px_6px_0_0_theme(colors.ink)]">
+            <Image
+              src={project.screenshotUrl}
+              alt={project.screenshotAlt ?? `${project.title} screenshot`}
+              width={1600}
+              height={900}
+              className="w-full"
+              priority
             />
-          )
-        )}
-      </SectionReveal>
+          </div>
+        </SectionReveal>
+      )}
+
+      {project.problem && (
+        <SectionReveal className="space-y-3">
+          <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink/40">
+            {sectionNumber('Problem')} / Problem
+          </h2>
+          <p className="max-w-4xl text-ink/85 leading-relaxed">{project.problem}</p>
+        </SectionReveal>
+      )}
+
+      {project.approach && (
+        <SectionReveal className="space-y-3">
+          <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink/40">
+            {sectionNumber('Approach')} / Approach
+          </h2>
+          <p className="max-w-4xl text-ink/85 leading-relaxed">{project.approach}</p>
+        </SectionReveal>
+      )}
+
+      {project.decisions && project.decisions.length > 0 && (
+        <SectionReveal className="space-y-4">
+          <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink/40">
+            {sectionNumber('Engineering decisions')} / Engineering decisions
+          </h2>
+          <EngineeringDecisions decisions={project.decisions} />
+        </SectionReveal>
+      )}
+
+      {(project.architecture || (project.architectureImage && project.architectureAlt)) && (
+        <SectionReveal className="space-y-4">
+          <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink/40">
+            {sectionNumber('Architecture')} / Architecture
+          </h2>
+          {project.architecture ? (
+            <ArchitectureFlow architecture={project.architecture} />
+          ) : (
+            project.architectureImage &&
+            project.architectureAlt && (
+              <ArchitectureDiagram
+                src={project.architectureImage}
+                alt={project.architectureAlt}
+              />
+            )
+          )}
+        </SectionReveal>
+      )}
 
       {project.metrics && project.metrics.length > 0 && (
         <SectionReveal className="space-y-4">
           <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink/40">
-            04 / Metrics
+            {sectionNumber('Metrics')} / Metrics
           </h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {project.metrics.map((metric) => (
