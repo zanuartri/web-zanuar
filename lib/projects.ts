@@ -41,6 +41,69 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: 'qa-regression-agent',
+    title: 'QA Regression Agent',
+    status: 'Live: public demo',
+    summary:
+      'An autonomous regression agent that runs Playwright, Cypress, and Selenium suites against real and sandbox targets, uses an LLM to triage every failure (real regression, flaky, or just a broken selector), and, for Playwright only, proposes and verifies a fix for the broken-selector case instead of just reporting it.',
+    stack: ['LangGraph', 'Playwright', 'Cypress', 'Selenium', 'PostgreSQL', 'pgvector', 'TypeScript'],
+    screenshotUrl: '/projects/qa-regression-agent-screenshot.png',
+    screenshotAlt:
+      'QA Regression Agent dashboard showing a broken Playwright selector classified as broken_selector by the LLM, with the self-heal panel showing the before/after selector diff labeled "verified, not applied"',
+    problem:
+      'Regression suites across three different frameworks produce three different kinds of noise: a real behavior change, a flaky network blip, and a selector that broke because the DOM moved, not because anything is actually wrong. Triaging which is which is manual and repetitive, and the third category, broken selectors, is exactly the kind of small, well-specified fix an LLM should be good at proposing, if it can be trusted to check its own work before anyone believes it.',
+    approach:
+      'A LangGraph state machine runs four independent suites (Playwright against a site I control, Cypress against Sauce Demo, Selenium driving a browser to dummyjson.com\'s JSON endpoints, and Playwright\'s APIRequestContext against the public GitHub API), normalizes every result into one schema regardless of framework, and routes each failure through an LLM classification step. A keyword heuristic covers the same three categories when no LLM key is configured, so the whole pipeline stays runnable without one. Failures classified as a broken Playwright selector go to a self-heal step: it extracts the failing locator from the spec source, asks the LLM for a replacement, writes it to a throwaway copy of the spec, and re-runs just that one test to verify the fix actually works before recording anything. Cypress command logs, Playwright action/assertion steps, and real request/response bodies for the API-shaped suites are all captured per test and stored as structured detail, browsable in a dashboard alongside a pass/fail/flaky trend chart and a real activity log of what the agent actually did on each run.',
+    decisions: [
+      {
+        decision: 'Self-heal proposes and verifies a fix, it never applies one.',
+        reason:
+          'The healed selector lives in a throwaway file used for a single verification re-run, then gets deleted; the actual spec file is never touched and nothing auto-commits. The dashboard shows a labeled before/after diff ("verified, not applied") for a human to copy in, on purpose: an agent quietly rewriting test source code is a bigger risk than a slower fix.',
+      },
+      {
+        decision: 'Every LLM-classified path has a deterministic fallback, not just a try/catch.',
+        reason:
+          'Both failure classification and selector healing fall back to a keyword heuristic when no LLM key is set, so the graph is fully testable and demoable without paying for API calls. Verified by running the same deliberately-broken selector through both the heuristic and a real model and confirming each path actually heals it.',
+      },
+      {
+        decision: 'Four suites run sequentially, one worker each, never in parallel.',
+        reason:
+          'This is built to run on a small VPS, where four browser processes at once risks OOM. run_tests pauses between suites and every framework is capped to a single worker internally, even though that makes a full run slower.',
+      },
+      {
+        decision: 'Verified end-to-end against real bugs, not just code review.',
+        reason:
+          'Actually running the pipeline surfaced two bugs a design review would have missed: Cypress\'s CLI JSON reporter never wrote its output file (switched to the Node API, which returns structured results directly), and Node\'s execFile with shell:true silently dropped quoting on a multi-word argument, which made every self-heal verification look like it failed even when the fix was correct.',
+      },
+    ],
+    architecture: {
+      entry: 'Test run (Playwright, Cypress, Selenium, github-api)',
+      router: 'classify_failure (LLM or heuristic)',
+      branches: [
+        {
+          label: 'Broken selector',
+          detail: 'Playwright only: propose and verify a replacement selector, never auto-apply',
+        },
+        {
+          label: 'Flaky',
+          detail: 'Re-run the affected suite once to check if it was noise',
+        },
+        {
+          label: 'Regression',
+          detail: 'Flagged for a human to review',
+        },
+      ],
+      sink: 'PostgreSQL (run history, per-test step/request-response detail)',
+    },
+    metrics: [
+      { label: 'Test frameworks', value: '4' },
+      { label: 'Tests per run', value: '14' },
+      { label: 'Failure categories', value: '3' },
+    ],
+    demoUrl: 'https://qa-regression-agent.zanuar.dev',
+    githubUrl: 'https://github.com/zanuartri/qa-regression-agent',
+  },
+  {
     slug: 'qa-agent-platform',
     title: 'QA Agent Platform',
     status: 'Live: public demo',
