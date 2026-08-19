@@ -41,6 +41,56 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: 'qa-dashboard',
+    title: 'QA Automation Test',
+    status: 'Live: public demo',
+    summary:
+      'A cross-stack QA automation test-health dashboard aggregating results from seven independent test repos, Playwright, Selenium, Cypress, Cucumber BDD, and API testing, across Python and TypeScript. Each repo posts its own results to a small authenticated webhook right after CI runs, and the dashboard renders whatever is on disk, no rebuild, no redeploy, no polling.',
+    stack: ['Next.js', 'TypeScript', 'Playwright', 'Selenium', 'Cypress', 'Cucumber', 'GitHub Actions', 'Docker', 'Traefik'],
+    problem:
+      'Seven independent QA automation repos across five frameworks and two languages produce seven different places to check whether anything is actually passing. There was no single view of cross-stack health, and CI logs are not something anyone, including me, checks regularly. A pass/fail regression in one stack could sit unnoticed for days.',
+    approach:
+      'A standardized results.json schema (stack, platform, pass/fail/skip counts, per-test detail) is shared across all seven repos. Each repo\'s CI workflow posts its results to a small authenticated webhook (POST /api/results/[stack]) right after every run, one bearer token per stack, compared with a timing-safe hash so a leaked token can only overwrite that one stack\'s file, never the git repo or any other stack. The dashboard itself is a Next.js app that reads results/*.json fresh on every request instead of baking data in at build time, groups cards by platform (web, API, with a mobile section ready for Appium/Maestro), color-codes by pass rate, and shows a per-test detail modal on demand. Adding a new stack later is just a new JSON file and a webhook call, no dashboard code changes.',
+    decisions: [
+      {
+        decision: 'A scoped webhook token, not a git-push PAT.',
+        reason:
+          'Each source repo gets its own per-stack token that can only write one results file. A leaked token cannot touch the dashboard repo, other stacks, or anything else on the VPS, a narrower blast radius than the git-PAT-with-repo-write-access alternative.',
+      },
+      {
+        decision: 'Dynamic rendering, not a static export.',
+        reason:
+          'The homepage reads results/*.json on every request (export const dynamic = "force-dynamic") instead of freezing the data at build time. A webhook POST shows up on the next page load, with zero rebuild, redeploy, or restart.',
+      },
+      {
+        decision: 'Rate-limited and schema-validated at the edge.',
+        reason:
+          'Stack slugs are regex-locked to [a-z0-9-]+ (no path traversal), each stack is capped at 10 writes/minute, and every payload is checked against the same schema the dashboard renders, so a malformed or hostile request never reaches disk.',
+      },
+    ],
+    architecture: {
+      entry: 'CI run (7 independent repos)',
+      router: 'POST /api/results/[stack] (per-stack bearer token)',
+      branches: [
+        { label: 'playwright-python', detail: 'Playwright + pytest, Page Object Model' },
+        { label: 'playwright-js', detail: 'Playwright + TypeScript, network mocking, parallel-safe' },
+        { label: 'selenium-python', detail: 'Selenium 4 + pytest, Page Object Model' },
+        { label: 'cypress-js', detail: 'Cypress + TypeScript, Page Object Model' },
+        { label: 'bdd-cucumber-playwright', detail: 'Cucumber + Playwright, Gherkin feature files' },
+        { label: 'api-testing-python', detail: 'pytest + requests + pydantic, schema validation' },
+        { label: 'api-testing-js', detail: 'Jest + TypeScript, mirrors the Python suite' },
+      ],
+      sink: 'results/*.json → dashboard renders on next request',
+    },
+    metrics: [
+      { label: 'Source repos', value: '7' },
+      { label: 'Frameworks', value: '5' },
+      { label: 'Rebuilds per update', value: '0' },
+    ],
+    demoUrl: 'https://qa.zanuar.dev',
+    githubUrl: 'https://github.com/zanuartri/qa-dashboard',
+  },
+  {
     slug: 'qa-regression-agent',
     title: 'QA Regression Agent',
     status: 'Live: public demo',
