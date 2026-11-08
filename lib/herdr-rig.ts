@@ -6,7 +6,7 @@ export const HERDR_RIG = {
     title: 'herdr-rig',
     lead: 'One manager agent, many coding agents, one terminal workspace. You talk to one session; it does the juggling.',
     leadMobile: 'One manager agent, many coding agents, one terminal workspace.',
-    primary: { label: 'Get it on GitHub', href: SOCIAL_LINKS.github },
+    primary: { label: 'Get it on GitHub', href: SOCIAL_LINKS.herdrRig },
     secondary: { label: 'See how it works', href: '#how' },
   },
   demo: {

@@ -29,19 +29,24 @@ export function PageHero({
   return (
     <section className="pb-[40px] pt-[20px] md:pb-[48px] md:pt-[40px] xl:pb-[56px] xl:pt-[72px]">
       <Container className="flex flex-col gap-[18px] md:gap-[24px] xl:gap-[26px]">
-        <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-[10px] gap-y-1 text-[15px] font-medium text-muted">
+        <nav
+          aria-label="Breadcrumb"
+          className="text-[15px] leading-[20px] font-medium text-muted underline underline-offset-4"
+        >
           <Link
             href="/"
-            className="underline underline-offset-4 transition-colors duration-fast hover:text-ink"
+            className="transition-colors duration-fast hover:text-ink"
           >
             The guide
           </Link>
-          <span aria-hidden>›</span>
-          <span>Projects</span>
-          <span aria-hidden>›</span>
-          <span aria-current="page" className="text-ink">
-            {title}
+          <span aria-hidden className="whitespace-pre">
+            {'  ›  '}
           </span>
+          <span>Projects</span>
+          <span aria-hidden className="whitespace-pre">
+            {'  ›  '}
+          </span>
+          <span aria-current="page">{title}</span>
         </nav>
 
         <div className="flex flex-col gap-[18px] md:gap-[24px] xl:flex-row xl:items-end xl:justify-between xl:gap-24">
