@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Reveal } from '@/components/motion/reveal';
 import { Checklist } from '@/components/sections/checklist';
 import { DarkCallout } from '@/components/sections/dark-callout';
 import { NumberedSteps } from '@/components/sections/numbered-steps';
@@ -30,34 +31,40 @@ export default function HerdrRigPage() {
         actions={[hero.primary, { ...hero.secondary, variant: 'secondary' }]}
       />
 
-      <section className="pb-12 md:pb-16 xl:pb-[120px]">
-        <Container>
-          <Screenshot
-            src={demo.src}
-            src2x={demo.src2x}
-            src2xWidth={demo.src2xWidth}
-            sizes="(min-width: 1200px) 1184px, (min-width: 768px) calc(100vw - 96px), calc(100vw - 40px)"
-            mobileSrc={demo.mobileSrc}
-            width={demo.width}
-            height={demo.height}
-            alt={demo.alt}
-            aspectClassName="aspect-[820/470] md:aspect-[1184/743]"
-            priority
-          />
-        </Container>
-      </section>
+      <Reveal>
+        <section className="pb-12 md:pb-16 xl:pb-[120px]">
+          <Container>
+            <Screenshot
+              src={demo.src}
+              src2x={demo.src2x}
+              src2xWidth={demo.src2xWidth}
+              sizes="(min-width: 1200px) 1184px, (min-width: 768px) calc(100vw - 96px), calc(100vw - 40px)"
+              mobileSrc={demo.mobileSrc}
+              width={demo.width}
+              height={demo.height}
+              alt={demo.alt}
+              aspectClassName="aspect-[820/470] md:aspect-[1184/743]"
+              priority
+            />
+          </Container>
+        </section>
+      </Reveal>
 
-      <PromiseCards heading={promises.heading} items={promises.items} />
+      <Reveal>
+        <PromiseCards heading={promises.heading} items={promises.items} />
+      </Reveal>
 
-      <DarkCallout
-        heading={callout.heading}
-        body={callout.body}
-        bodyMobile={callout.bodyMobile}
-        listLabel={callout.listLabel}
-        items={callout.items}
-      />
+      <Reveal>
+        <DarkCallout
+          heading={callout.heading}
+          body={callout.body}
+          bodyMobile={callout.bodyMobile}
+          listLabel={callout.listLabel}
+          items={callout.items}
+        />
+      </Reveal>
 
-      <div className="hidden md:block">
+      <Reveal className="hidden md:block">
         <NumberedSteps
           id="how"
           heading={steps.heading}
@@ -65,9 +72,9 @@ export default function HerdrRigPage() {
           worksWithLabel={steps.worksWithLabel}
           worksWith={steps.worksWith}
         />
-      </div>
+      </Reveal>
 
-      <div className="hidden md:block">
+      <Reveal className="hidden md:block">
         <Showcase
           heading={board.heading}
           body={board.body}
@@ -77,13 +84,15 @@ export default function HerdrRigPage() {
           alt={board.alt}
           aspectClassName="aspect-[1184/679]"
         />
-      </div>
+      </Reveal>
 
-      <Checklist
-        heading={tested.heading}
-        items={tested.items}
-        itemsMobile={tested.itemsMobile}
-      />
+      <Reveal>
+        <Checklist
+          heading={tested.heading}
+          items={tested.items}
+          itemsMobile={tested.itemsMobile}
+        />
+      </Reveal>
     </main>
   );
 }

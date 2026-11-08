@@ -18,14 +18,14 @@ export function GuideIndex() {
               >
                 <a
                   href={entry.href}
-                  className="group flex min-h-12 items-center gap-[20px] rounded-pill border-transparent transition-colors duration-fast hover:border-2 hover:border-ink hover:bg-cream active:border-ink active:bg-peach-soft md:min-h-0 md:border-b-2 md:border-line md:px-4 md:py-[18px]"
+                  className="group flex min-h-12 items-center gap-[20px] rounded-pill border-2 border-transparent transition-colors duration-fast ease-out hover:border-ink hover:bg-cream active:border-ink active:bg-peach-soft md:min-h-0 md:px-4 md:py-[18px]"
                 >
                   <span
                     className={cn(
-                      'hidden h-10 w-10 shrink-0 items-center justify-center rounded-pill border-2 border-ink font-mono text-[15px] font-medium md:flex',
+                      'hidden h-10 w-10 shrink-0 items-center justify-center rounded-pill border-2 border-ink font-mono text-[15px] font-medium transition-colors duration-fast ease-out md:flex',
                       entry.isProject
                         ? 'bg-ink text-paper'
-                        : 'text-ink group-hover:bg-ink group-hover:text-paper'
+                        : 'text-ink group-hover:bg-ink group-hover:text-paper group-active:bg-ink group-active:text-paper'
                     )}
                   >
                     {entry.number}

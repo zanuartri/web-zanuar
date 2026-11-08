@@ -140,6 +140,20 @@
   }
 }
 
+/* Loading blocks: the real layout stays, only the fill breathes. */
+@keyframes skeleton-pulse {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+
+.motion-skeleton {
+  animation: skeleton-pulse 1.2s ease-in-out infinite alternate;
+}
+
 @keyframes bubble-pop {
   from {
     opacity: 0;
@@ -162,5 +176,9 @@
 @media (prefers-reduced-motion: reduce) {
   .motion-bubble {
     animation-delay: 0s;
+  }
+
+  .motion-skeleton {
+    animation: none;
   }
 }

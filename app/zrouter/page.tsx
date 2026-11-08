@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { ZRouterDemo } from '@/components/home/zrouter-demo';
+import { ZRouterDemoFrame } from '@/components/home/demo-boundary';
+import { Reveal } from '@/components/motion/reveal';
 import { Checklist } from '@/components/sections/checklist';
 import { DarkCallout } from '@/components/sections/dark-callout';
 import { LiveMap } from '@/components/sections/live-map';
@@ -29,23 +30,29 @@ export default function ZRouterPage() {
         actions={[hero.primary, { ...hero.secondary, variant: 'secondary' }]}
       />
 
-      <section className="pb-12 md:pb-16 xl:pb-[120px]">
-        <Container>
-          <ZRouterDemo />
-        </Container>
-      </section>
+      <Reveal>
+        <section className="pb-12 md:pb-16 xl:pb-[120px]">
+          <Container>
+            <ZRouterDemoFrame />
+          </Container>
+        </section>
+      </Reveal>
 
-      <PromiseCards heading={promises.heading} items={promises.items} />
+      <Reveal>
+        <PromiseCards heading={promises.heading} items={promises.items} />
+      </Reveal>
 
-      <DarkCallout
-        heading={callout.heading}
-        body={callout.body}
-        bodyMobile={callout.bodyMobile}
-        listLabel={callout.listLabel}
-        items={callout.items}
-      />
+      <Reveal>
+        <DarkCallout
+          heading={callout.heading}
+          body={callout.body}
+          bodyMobile={callout.bodyMobile}
+          listLabel={callout.listLabel}
+          items={callout.items}
+        />
+      </Reveal>
 
-      <div className="hidden md:block">
+      <Reveal className="hidden md:block">
         <NumberedSteps
           id="how"
           heading={steps.heading}
@@ -53,37 +60,41 @@ export default function ZRouterPage() {
           worksWithLabel={steps.worksWithLabel}
           worksWith={steps.worksWith}
         />
-      </div>
+      </Reveal>
 
-      <section className="hidden py-16 md:block md:py-20 xl:py-[120px]">
-        <Container>
-          <div className="flex flex-col gap-6 xl:flex-row xl:items-end xl:justify-between xl:gap-24">
-            <h2 className="max-w-[640px] font-display text-[52px] leading-[56px] tracking-[-0.02em] text-ink xl:text-[64px] xl:leading-[80px]">
-              {dashboard.heading}
-            </h2>
-            <p className="max-w-[440px] text-[16px] leading-[25px] text-ink-soft xl:text-[17px] xl:leading-[27px]">
-              {dashboard.body}
+      <Reveal className="hidden md:block">
+        <section className="py-16 md:py-20 xl:py-[120px]">
+          <Container>
+            <div className="flex flex-col gap-6 xl:flex-row xl:items-end xl:justify-between xl:gap-24">
+              <h2 className="max-w-[640px] font-display text-[52px] leading-[56px] tracking-[-0.02em] text-ink xl:text-[64px] xl:leading-[80px]">
+                {dashboard.heading}
+              </h2>
+              <p className="max-w-[440px] text-[16px] leading-[25px] text-ink-soft xl:text-[17px] xl:leading-[27px]">
+                {dashboard.body}
+              </p>
+            </div>
+
+            <div className="mt-10">
+              <LiveMap />
+            </div>
+
+            <p className="mt-10 text-[15px] leading-[22px] text-ink-soft">
+              {dashboard.caption}
             </p>
-          </div>
+          </Container>
+        </section>
+      </Reveal>
 
-          <div className="mt-10">
-            <LiveMap />
-          </div>
-
-          <p className="mt-10 text-[15px] leading-[22px] text-ink-soft">
-            {dashboard.caption}
-          </p>
-        </Container>
-      </section>
-
-      <div id="roadmap" className="scroll-mt-6">
-        <Checklist
-          heading={roadmap.heading}
-          items={roadmap.items}
-          itemsMobile={roadmap.itemsMobile}
-          accentFirst
-        />
-      </div>
+      <Reveal>
+        <div id="roadmap" className="scroll-mt-6">
+          <Checklist
+            heading={roadmap.heading}
+            items={roadmap.items}
+            itemsMobile={roadmap.itemsMobile}
+            accentFirst
+          />
+        </div>
+      </Reveal>
     </main>
   );
 }

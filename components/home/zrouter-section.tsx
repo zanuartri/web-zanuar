@@ -4,7 +4,7 @@ import { Tag } from '@/components/ui/tag';
 import { ZROUTER } from '@/lib/content';
 import { SOCIAL_LINKS } from '@/lib/site';
 import { cn } from '@/lib/utils';
-import { ZRouterDemo } from './zrouter-demo';
+import { ZRouterDemoFrame } from './demo-boundary';
 
 export function ZRouterSection() {
   return (
@@ -36,7 +36,7 @@ export function ZRouterSection() {
           </p>
         </div>
 
-        <ZRouterDemo />
+        <ZRouterDemoFrame />
 
         <div className="hidden xl:flex xl:items-center xl:justify-between xl:gap-6">
           <ul className="flex max-w-[798px] flex-wrap gap-2">

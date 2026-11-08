@@ -38,11 +38,12 @@ export function Screenshot({
   return (
     <div
       className={cn(
-        'relative overflow-hidden rounded-[16px] border-2 border-ink bg-skeleton xl:rounded-[20px]',
+        'relative overflow-hidden rounded-[16px] border-2 border-ink xl:rounded-[20px]',
         aspectClassName,
         className
       )}
     >
+      <span aria-hidden className="motion-skeleton absolute inset-0 bg-skeleton" />
       <picture>
         {mobileSrc ? (
           <source media="(max-width: 767px)" srcSet={mobileSrc} />

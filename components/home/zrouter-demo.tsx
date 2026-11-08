@@ -34,18 +34,18 @@ function Toggle({
       <span className="font-medium text-ink-soft">Provider A</span>
       <span
         className={cn(
-          'flex items-center rounded-pill px-4 font-semibold',
+          'flex items-center rounded-pill px-4 font-semibold transition-colors duration-fast ease-out',
           compact ? 'h-[38px]' : 'h-[32px]',
-          up ? 'bg-ink text-paper' : 'text-muted'
+          up ? 'bg-ink text-paper' : 'text-muted hover:bg-paper hover:text-ink active:bg-paper active:text-ink'
         )}
       >
         Up
       </span>
       <span
         className={cn(
-          'flex items-center rounded-pill px-4 font-semibold',
+          'flex items-center rounded-pill px-4 font-semibold transition-colors duration-fast ease-out',
           compact ? 'h-[38px]' : 'h-[32px]',
-          up ? 'text-muted' : 'bg-ink text-paper'
+          up ? 'text-muted hover:bg-paper hover:text-ink active:bg-paper active:text-ink' : 'bg-ink text-paper'
         )}
       >
         Down
@@ -62,11 +62,8 @@ function Connector({ d, active }: { d: string; active: boolean }) {
         fill="none"
         strokeWidth={2.5}
         strokeDasharray="5 7"
-        className="stroke-faint"
-        style={{
-          opacity: active ? 0 : 1,
-          transition: 'opacity 450ms cubic-bezier(0.2, 0.8, 0.2, 1)',
-        }}
+        className="stroke-faint transition-opacity duration-slow ease-out"
+        style={{ opacity: active ? 0 : 1 }}
       />
       <path
         d={d}
@@ -74,11 +71,8 @@ function Connector({ d, active }: { d: string; active: boolean }) {
         strokeWidth={3.5}
         pathLength={1}
         strokeDasharray={1}
-        className="stroke-peach"
-        style={{
-          strokeDashoffset: active ? 0 : 1,
-          transition: 'stroke-dashoffset 450ms cubic-bezier(0.2, 0.8, 0.2, 1)',
-        }}
+        className="stroke-peach transition-[stroke-dashoffset] duration-slow ease-out"
+        style={{ strokeDashoffset: active ? 0 : 1 }}
       />
     </g>
   );
@@ -98,7 +92,7 @@ function MobileProvider({
   return (
     <div
       className={cn(
-        'flex h-[65px] flex-col items-center justify-center gap-1 rounded-[20px] border-2 px-2 py-3 text-center',
+        'flex h-[65px] flex-col items-center justify-center gap-1 rounded-[20px] border-2 px-2 py-3 text-center transition-colors duration-slow ease-out',
         live ? 'border-ink bg-peach-soft text-ink' : 'border-ink bg-paper text-ink',
         down && 'border-dashed border-faint bg-cream text-faint'
       )}
@@ -156,7 +150,7 @@ export function ZRouterDemo() {
             strokeWidth={2}
             strokeDasharray={up ? undefined : '5 5'}
             className={cn(
-              'fill-cream stroke-faint',
+              'fill-cream stroke-faint transition-colors duration-slow ease-out',
               up ? 'fill-peach-soft stroke-ink' : ''
             )}
           />
@@ -177,7 +171,7 @@ export function ZRouterDemo() {
             {up ? 'answering' : 'taking a nap'}
           </text>
 
-          <rect x="776" y="300" width="220" height="64" rx="32" strokeWidth={2} className={cn('stroke-ink', up ? 'fill-paper' : 'fill-peach-soft')} />
+          <rect x="776" y="300" width="220" height="64" rx="32" strokeWidth={2} className={cn('stroke-ink transition-colors duration-slow ease-out', up ? 'fill-paper' : 'fill-peach-soft')} />
           <text x="886" y="332" textAnchor="middle" dominantBaseline="central" className="fill-ink font-mono text-[15px] font-medium">
             kenari.id
           </text>
