@@ -110,12 +110,12 @@ export const ZROUTER = {
   leadMobile:
     'ZRouter, the one I’m building now, hands the request to the next provider and keeps the context and cache it already had.',
   features: [
+    'Local gateways, first-class',
     'OpenAI and Anthropic APIs',
     'Cache-aware routing',
     'Fallback and round robin',
     'Request telemetry',
     'Built-in dashboard',
-    'Global and local gateways',
   ],
 } as const;
 

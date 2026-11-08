@@ -40,10 +40,13 @@ export function ZRouterSection() {
 
         <div className="hidden xl:flex xl:items-center xl:justify-between xl:gap-6">
           <ul className="flex max-w-[798px] flex-wrap gap-2">
-            {ZROUTER.features.map((feature) => (
+            {ZROUTER.features.map((feature, index) => (
               <li
                 key={feature}
-                className="inline-flex h-[37px] items-center rounded-pill border-tag border-ink bg-paper px-4 text-[14px] font-medium text-ink"
+                className={cn(
+                  'inline-flex h-[37px] items-center rounded-pill border-tag border-ink px-4 text-[14px] font-medium text-ink',
+                  index === 0 ? 'bg-peach-soft' : 'bg-paper'
+                )}
               >
                 {feature}
               </li>

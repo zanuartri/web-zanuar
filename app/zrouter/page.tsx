@@ -4,6 +4,7 @@ import { Reveal } from '@/components/motion/reveal';
 import { Checklist } from '@/components/sections/checklist';
 import { DarkCallout } from '@/components/sections/dark-callout';
 import { LiveMap } from '@/components/sections/live-map';
+import { LocalGateways } from '@/components/sections/local-gateways';
 import { NumberedSteps } from '@/components/sections/numbered-steps';
 import { PageHero } from '@/components/sections/page-hero';
 import { PromiseCards } from '@/components/sections/promise-cards';
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default function ZRouterPage() {
-  const { hero, promises, callout, steps, dashboard, roadmap } = ZROUTER;
+  const { hero, gateways, promises, callout, steps, dashboard, roadmap } = ZROUTER;
 
   return (
     <main>
@@ -34,6 +35,15 @@ export default function ZRouterPage() {
             <ZRouterDemoFrame />
           </Container>
         </section>
+      </Reveal>
+
+      <Reveal>
+        <LocalGateways
+          eyebrow={gateways.eyebrow}
+          heading={gateways.heading}
+          body={gateways.body}
+          rows={gateways.rows}
+        />
       </Reveal>
 
       <Reveal>

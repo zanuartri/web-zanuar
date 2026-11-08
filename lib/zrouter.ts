@@ -4,9 +4,24 @@ export const ZROUTER = {
   hero: {
     tag: 'In the works',
     title: 'ZRouter',
-    lead: 'A router for coding agents that switches providers without losing your cache or context.',
+    lead: 'A router for coding agents that switches providers without losing your cache or context. Cloud plans and local gateways, side by side.',
     primary: { label: 'Follow on GitHub', href: SOCIAL_LINKS.github },
     secondary: { label: 'See the roadmap', href: '#roadmap' },
+  },
+  gateways: {
+    eyebrow: 'WHAT MAKES IT DIFFERENT',
+    heading: 'Local gateways are first-class.',
+    body: 'Local and regional gateways are often cheaper and closer to you. ZRouter gives them the same routes, fallback, cache tracking and cost per request as Claude or ChatGPT. Kenari.id comes as a preset. Any other gateway that speaks the OpenAI or Anthropic format plugs in as a custom provider, and gets its own preset when people ask for it.',
+    rows: [
+      { name: 'Kenari.id', note: 'preset · paste a key' },
+      { name: 'Any OpenAI-format gateway', note: 'custom · URL + key' },
+      { name: 'Any Anthropic-format gateway', note: 'custom · URL + key' },
+      {
+        name: '+ Your gateway next',
+        note: 'ask for a preset on GitHub',
+        href: `${SOCIAL_LINKS.github}/issues`,
+      },
+    ],
   },
   promises: {
     heading: 'What it’s built for.',
@@ -25,9 +40,9 @@ export const ZROUTER = {
       },
       {
         title: 'Providers you already use.',
-        body: 'Claude, ChatGPT, OpenCode, Command Code, Kenari.id, OpenRouter, NVIDIA NIM and Ollama, ready to pick.',
+        body: 'Claude, ChatGPT, OpenCode, Command Code, OpenRouter, NVIDIA NIM, Ollama and local gateways, ready to pick.',
         bodyMobile:
-          'Claude, ChatGPT, OpenCode, Command Code, Kenari.id, OpenRouter, NVIDIA NIM and Ollama.',
+          'Claude, ChatGPT, OpenCode, Command Code, OpenRouter, NVIDIA NIM, Ollama and local gateways, ready to pick.',
       },
     ],
   },
@@ -65,7 +80,7 @@ export const ZROUTER = {
       'Claude Code',
       'Codex CLI',
       'Any OpenAI-compatible API',
-      'Kenari.id',
+      'Local gateways like Kenari.id',
     ],
   },
   dashboard: {
@@ -79,7 +94,7 @@ export const ZROUTER = {
       { label: 'Point Claude Code or Codex at it, and it answers', status: 'Building now' },
       { label: 'Fallback and round robin that keep your cache warm', status: 'Next' },
       { label: 'Context that survives a provider switch', status: 'Next' },
-      { label: 'Presets for Claude, ChatGPT, Kenari.id, Ollama, etc.', status: 'Next' },
+      { label: 'Presets for Claude, ChatGPT, local gateways and Ollama', status: 'Next' },
       { label: 'The dashboard that explains every switch', status: 'Later' },
     ],
     itemsMobile: [
