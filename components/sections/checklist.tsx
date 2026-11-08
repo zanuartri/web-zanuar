@@ -11,9 +11,16 @@ export type ChecklistProps = {
   items: readonly ChecklistItem[];
   /** Shortened rows drawn in the mobile frame, below 768. */
   itemsMobile: readonly ChecklistItem[];
+  /** Fill the first row's dot and raise its status, as on the ZRouter roadmap. */
+  accentFirst?: boolean;
 };
 
-export function Checklist({ heading, items, itemsMobile }: ChecklistProps) {
+export function Checklist({
+  heading,
+  items,
+  itemsMobile,
+  accentFirst = false,
+}: ChecklistProps) {
   return (
     <section className="pb-14 md:pb-20 xl:pb-[120px]">
       <Container className="flex flex-col gap-[14px] md:gap-10 xl:grid xl:grid-cols-[minmax(0,1fr)_648px] xl:items-start xl:gap-24">
@@ -37,21 +44,37 @@ export function Checklist({ heading, items, itemsMobile }: ChecklistProps) {
           </ul>
 
           <ul className="hidden md:block">
-            {items.map((item) => (
-              <li
-                key={item.label}
-                className="flex items-center gap-4 border-b-[1.5px] border-line py-[20px] last:border-b-0"
-              >
-                <span
-                  aria-hidden
-                  className="h-[22px] w-[22px] shrink-0 rounded-pill border-2 border-ink"
-                />
-                <span className="flex-1 text-[17px] font-medium text-ink">
-                  {item.label}
-                </span>
-                <span className="shrink-0 text-[14px] text-muted">{item.status}</span>
-              </li>
-            ))}
+            {items.map((item, index) => {
+              const accent = accentFirst && index === 0;
+
+              return (
+                <li
+                  key={item.label}
+                  className="flex items-center gap-4 border-b-[1.5px] border-line py-[20px] last:border-b-0"
+                >
+                  <span
+                    aria-hidden
+                    className={
+                      accent
+                        ? 'h-[22px] w-[22px] shrink-0 rounded-pill border-2 border-ink bg-peach'
+                        : 'h-[22px] w-[22px] shrink-0 rounded-pill border-2 border-ink'
+                    }
+                  />
+                  <span className="flex-1 text-[17px] font-medium text-ink">
+                    {item.label}
+                  </span>
+                  <span
+                    className={
+                      accent
+                        ? 'shrink-0 text-[14px] font-semibold text-ink'
+                        : 'shrink-0 text-[14px] text-muted'
+                    }
+                  >
+                    {item.status}
+                  </span>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </Container>
