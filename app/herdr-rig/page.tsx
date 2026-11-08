@@ -1,0 +1,89 @@
+import type { Metadata } from 'next';
+import { Checklist } from '@/components/sections/checklist';
+import { DarkCallout } from '@/components/sections/dark-callout';
+import { NumberedSteps } from '@/components/sections/numbered-steps';
+import { PageHero } from '@/components/sections/page-hero';
+import { PromiseCards } from '@/components/sections/promise-cards';
+import { Screenshot } from '@/components/sections/screenshot';
+import { Showcase } from '@/components/sections/showcase';
+import { Container } from '@/components/ui/container';
+import { HERDR_RIG } from '@/lib/herdr-rig';
+
+export const metadata: Metadata = {
+  title: 'herdr-rig · zanuar',
+  description:
+    'One manager agent, many coding agents, one terminal workspace. You talk to one session; it does the juggling.',
+};
+
+export default function HerdrRigPage() {
+  const { hero, demo, promises, callout, steps, board, tested } = HERDR_RIG;
+
+  return (
+    <main>
+      <PageHero
+        backLabel={hero.backLabel}
+        backHref={hero.backHref}
+        tag={hero.tag}
+        title={hero.title}
+        lead={hero.lead}
+        leadMobile={hero.leadMobile}
+        actions={[hero.primary, { ...hero.secondary, variant: 'secondary' }]}
+      />
+
+      <section className="pb-12 md:pb-16 xl:pb-[120px]">
+        <Container>
+          <Screenshot
+            src={demo.src}
+            src2x={demo.src2x}
+            src2xWidth={demo.src2xWidth}
+            sizes="(min-width: 1200px) 1184px, (min-width: 768px) calc(100vw - 96px), calc(100vw - 40px)"
+            mobileSrc={demo.mobileSrc}
+            width={demo.width}
+            height={demo.height}
+            alt={demo.alt}
+            aspectClassName="aspect-[820/470] md:aspect-[1184/743]"
+            priority
+          />
+        </Container>
+      </section>
+
+      <PromiseCards heading={promises.heading} items={promises.items} />
+
+      <DarkCallout
+        heading={callout.heading}
+        body={callout.body}
+        bodyMobile={callout.bodyMobile}
+        listLabel={callout.listLabel}
+        items={callout.items}
+      />
+
+      <div className="hidden md:block">
+        <NumberedSteps
+          id="how"
+          heading={steps.heading}
+          items={steps.items}
+          worksWithLabel={steps.worksWithLabel}
+          worksWith={steps.worksWith}
+        />
+      </div>
+
+      <div className="hidden md:block">
+        <Showcase
+          heading={board.heading}
+          body={board.body}
+          src={board.src}
+          width={board.width}
+          height={board.height}
+          alt={board.alt}
+          aspectClassName="aspect-[1184/679]"
+        />
+      </div>
+
+      <Checklist
+        heading={tested.heading}
+        items={tested.items}
+        itemsMobile={tested.itemsMobile}
+      />
+    </main>
+  );
+}
