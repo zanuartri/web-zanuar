@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://zanuar.dev'),
   title: 'zanuar',
   description: 'Small, friendly tools I build for the moments an agent gets stuck.',
+  manifest: '/manifest.webmanifest',
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
