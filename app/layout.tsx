@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import { Footer } from '@/components/footer';
+import { Nav } from '@/components/nav';
 import './globals.css';
 
 const fraunces = localFont({
@@ -38,7 +40,9 @@ export default function RootLayout({
       className={`${fraunces.variable} ${dmSans.variable} ${dmMono.variable}`}
     >
       <body className="min-h-screen bg-cream font-sans text-ink antialiased">
+        <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );

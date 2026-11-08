@@ -74,11 +74,22 @@
   h3,
   h4 {
     font-weight: 600;
-    font-variation-settings: 'SOFT' 100, 'WONK' 0;
+    font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 144;
+  }
+
+  h3,
+  h4,
+  h3.font-display,
+  h4.font-display {
+    font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 72;
   }
 
   .font-display {
-    font-variation-settings: 'SOFT' 100, 'WONK' 0;
+    font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 144;
+  }
+
+  .font-wordmark {
+    font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 72, 'wght' 650;
   }
 
   :focus-visible {
