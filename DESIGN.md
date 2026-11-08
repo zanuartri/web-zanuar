@@ -28,6 +28,7 @@ Color:
 | `color/line` | `#E2D6C3` | Dividers |
 | `color/peach` | `#E9967A` | Accent decoration, hover shadow |
 | `color/peach-soft` | `#F6CDBB` | Live fills, status pills |
+| `color/rust` | `#9A5A3E` | Local gateways eyebrow on peach-soft |
 | `color/skeleton` | `#E6DACA` | Loading blocks |
 
 Radius: `card` 32, `card-mobile` 28, `inner` 20, `pill` 999.

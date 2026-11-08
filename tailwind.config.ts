@@ -18,6 +18,7 @@ const config: Config = {
         line: 'var(--color-line)',
         peach: 'var(--color-peach)',
         'peach-soft': 'var(--color-peach-soft)',
+        rust: 'var(--color-rust)',
         skeleton: 'var(--color-skeleton)',
         avatar: 'var(--color-avatar)',
       },

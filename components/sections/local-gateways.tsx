@@ -18,9 +18,9 @@ export function LocalGateways({ eyebrow, heading, body, rows }: LocalGatewaysPro
   return (
     <section className="pb-12 md:pb-16 xl:pb-[88px]">
       <Container>
-        <div className="grid gap-[24px] rounded-card-mobile border-2 border-ink bg-peach-soft p-[24px] md:rounded-card xl:grid-cols-2 xl:items-center xl:gap-[56px] xl:p-[48px]">
+        <div className="grid gap-[24px] rounded-[24px] border-2 border-ink bg-peach-soft p-[24px] md:rounded-card xl:grid-cols-[528px_500px] xl:items-center xl:gap-[56px] xl:p-[48px]">
           <div className="flex flex-col gap-[18px]">
-            <p className="font-mono text-[13px] font-semibold uppercase tracking-[0.08em] text-ink">
+            <p className="font-mono text-[13px] font-semibold uppercase tracking-[0.08em] text-rust">
               {eyebrow}
             </p>
             <h2 className="font-display text-[36px] leading-[40px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[54px]">
@@ -31,7 +31,7 @@ export function LocalGateways({ eyebrow, heading, body, rows }: LocalGatewaysPro
             </p>
           </div>
 
-          <ul className="flex flex-col gap-[24px] xl:gap-[12px]">
+          <ul className="flex flex-col gap-[12px]">
             {rows.map((row) => {
               const content = (
                 <>
