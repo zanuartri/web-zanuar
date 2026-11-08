@@ -15,8 +15,8 @@ export const HERDR_RIG = {
     src2xWidth: 1658,
     width: 1184,
     height: 743,
-    /* Below 768 the frame shows board-app.png instead of hero.png. */
-    mobileSrc: '/herdr-rig/board-820.webp',
+    /* Below 768 the frame shows the board illustration instead of hero.png. */
+    mobileSrc: '/herdr-rig/rig-board-1184.webp',
     alt: 'The herdr-rig board in the herdr desktop app: tickets grouped by what they need, each with its worker harness and model',
   },
   promises: {
@@ -75,11 +75,13 @@ export const HERDR_RIG = {
   },
   board: {
     heading: 'Everything on one board.',
-    body: 'Tickets grouped by what they need from you: Needs you, Working, Ready, Queued, Done. Click Open to jump to an agent’s pane, and a toast tells you when something needs you.',
-    src: '/herdr-rig/board-820.webp',
+    body: 'Tickets grouped by what they need from you: Needs you, Working, Ready, Queued, Done. Click Open to jump to an agent’s pane, and a toast tells you when something needs you. (Drawing of the real board.)',
+    src: '/herdr-rig/rig-board-1184.webp',
+    src2x: '/herdr-rig/rig-board-2368.webp',
+    src2xWidth: 2368,
     width: 1184,
-    height: 679,
-    alt: 'The rig board showing Working and Queued tickets, each with its worker harness and model',
+    height: 680,
+    alt: 'Drawing of the rig board: four tickets working, one queued.',
   },
   tested: {
     heading: 'What’s tested.',

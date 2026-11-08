@@ -5,6 +5,9 @@ export type ShowcaseProps = {
   heading: string;
   body: string;
   src: string;
+  src2x?: string;
+  src2xWidth?: number;
+  sizes?: string;
   width: number;
   height: number;
   alt: string;
@@ -16,6 +19,9 @@ export function Showcase({
   heading,
   body,
   src,
+  src2x,
+  src2xWidth,
+  sizes,
   width,
   height,
   alt,
@@ -35,6 +41,9 @@ export function Showcase({
 
         <Screenshot
           src={src}
+          src2x={src2x}
+          src2xWidth={src2xWidth}
+          sizes={sizes}
           width={width}
           height={height}
           alt={alt}

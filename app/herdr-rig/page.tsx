@@ -77,10 +77,13 @@ export default function HerdrRigPage() {
           heading={board.heading}
           body={board.body}
           src={board.src}
+          src2x={board.src2x}
+          src2xWidth={board.src2xWidth}
+          sizes="(min-width: 1200px) 1184px, calc(100vw - 96px)"
           width={board.width}
           height={board.height}
           alt={board.alt}
-          aspectClassName="aspect-[1184/679]"
+          aspectClassName="aspect-[1184/680]"
         />
       </Reveal>
 
