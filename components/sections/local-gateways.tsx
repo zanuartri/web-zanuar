@@ -44,7 +44,7 @@ export function LocalGateways({ eyebrow, heading, body, rows }: LocalGatewaysPro
                 </>
               );
               const className = cn(
-                'flex h-[72px] flex-col justify-center gap-[2px] rounded-[18px] border-2 border-ink bg-paper px-[18px] py-[14px] transition-colors duration-fast',
+                'flex h-[72px] flex-col justify-center gap-[2px] rounded-[18px] border-2 border-ink bg-paper px-4 py-[14px] transition-colors duration-fast',
                 'xl:h-[59px] xl:flex-row xl:items-center xl:justify-between xl:gap-4 xl:px-[22px] xl:py-0',
                 row.href
                   ? 'border-dashed border-[1.5px] bg-transparent hover:bg-cream'
