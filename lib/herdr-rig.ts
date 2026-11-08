@@ -2,8 +2,6 @@ import { SOCIAL_LINKS } from '@/lib/site';
 
 export const HERDR_RIG = {
   hero: {
-    backLabel: 'Back to the guide',
-    backHref: '/#guide',
     tag: 'Open source · MIT',
     title: 'herdr-rig',
     lead: 'One manager agent, many coding agents, one terminal workspace. You talk to one session; it does the juggling.',

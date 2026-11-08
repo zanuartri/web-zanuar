@@ -70,7 +70,12 @@ export function Nav() {
               key={href}
               href={href}
               aria-current={isActive(href) ? 'page' : undefined}
-              className="text-[16px] font-medium text-ink transition-colors duration-fast hover:text-ink-soft"
+              className={cn(
+                'text-[16px] text-ink transition-colors duration-fast hover:text-ink-soft',
+                isActive(href)
+                  ? 'font-semibold underline decoration-2 underline-offset-4'
+                  : 'font-medium'
+              )}
             >
               {label}
             </Link>

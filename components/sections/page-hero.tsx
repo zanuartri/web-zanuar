@@ -11,8 +11,6 @@ export type HeroAction = {
 };
 
 export type PageHeroProps = {
-  backLabel: string;
-  backHref: string;
   tag: string;
   title: string;
   lead: string;
@@ -22,8 +20,6 @@ export type PageHeroProps = {
 };
 
 export function PageHero({
-  backLabel,
-  backHref,
   tag,
   title,
   lead,
@@ -33,12 +29,20 @@ export function PageHero({
   return (
     <section className="pb-[40px] pt-[20px] md:pb-[48px] md:pt-[40px] xl:pb-[56px] xl:pt-[72px]">
       <Container className="flex flex-col gap-[18px] md:gap-[24px] xl:gap-[26px]">
-        <Link
-          href={backHref}
-          className="w-fit text-[15px] font-medium text-muted underline underline-offset-4 transition-colors duration-fast hover:text-ink"
-        >
-          {backLabel}
-        </Link>
+        <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-[10px] gap-y-1 text-[15px] font-medium text-muted">
+          <Link
+            href="/"
+            className="underline underline-offset-4 transition-colors duration-fast hover:text-ink"
+          >
+            The guide
+          </Link>
+          <span aria-hidden>›</span>
+          <span>Projects</span>
+          <span aria-hidden>›</span>
+          <span aria-current="page" className="text-ink">
+            {title}
+          </span>
+        </nav>
 
         <div className="flex flex-col gap-[18px] md:gap-[24px] xl:flex-row xl:items-end xl:justify-between xl:gap-24">
           <div className="flex min-w-0 flex-col gap-[18px] md:gap-[24px] xl:max-w-[686px] xl:gap-[22px]">

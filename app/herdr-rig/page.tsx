@@ -22,8 +22,6 @@ export default function HerdrRigPage() {
   return (
     <main>
       <PageHero
-        backLabel={hero.backLabel}
-        backHref={hero.backHref}
         tag={hero.tag}
         title={hero.title}
         lead={hero.lead}

@@ -2,8 +2,6 @@ import { SOCIAL_LINKS } from '@/lib/site';
 
 export const ZROUTER = {
   hero: {
-    backLabel: 'Back to the guide',
-    backHref: '/#guide',
     tag: 'In the works',
     title: 'ZRouter',
     lead: 'A router for coding agents that switches providers without losing your cache or context.',
