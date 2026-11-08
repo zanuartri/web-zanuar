@@ -14,6 +14,8 @@
   --color-peach: #e9967a;
   --color-peach-soft: #f6cdbb;
   --color-skeleton: #e6daca;
+  /* matches the background baked into avatar.png */
+  --color-avatar: #ede0cc;
 
   /* radius */
   --radius-card: 32px;
@@ -88,6 +90,16 @@
     font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 144;
   }
 
+  .font-display-row {
+    font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 72;
+  }
+
+  @media (min-width: 1200px) {
+    h3.font-display.font-display-card {
+      font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 96;
+    }
+  }
+
   .font-wordmark {
     font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 72, 'wght' 650;
   }
@@ -114,5 +126,41 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes avatar-tilt {
+  from {
+    opacity: 0;
+    transform: translateY(16px) rotate(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-3deg);
+  }
+}
+
+@keyframes bubble-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotate(4deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(4deg);
+  }
+}
+
+.motion-avatar {
+  animation: avatar-tilt var(--motion-slow) var(--motion-ease-out) both;
+}
+
+.motion-bubble {
+  animation: bubble-pop var(--motion-base) var(--motion-ease-pop) 200ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-bubble {
+    animation-delay: 0s;
   }
 }

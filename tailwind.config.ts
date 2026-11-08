@@ -19,6 +19,7 @@ const config: Config = {
         peach: 'var(--color-peach)',
         'peach-soft': 'var(--color-peach-soft)',
         skeleton: 'var(--color-skeleton)',
+        avatar: 'var(--color-avatar)',
       },
       borderRadius: {
         card: 'var(--radius-card)',
