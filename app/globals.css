@@ -3,38 +3,105 @@
 @tailwind utilities;
 
 :root {
-  --font-display: theme('fontFamily.display');
+  /* color, from the zanuar variable collection */
+  --color-cream: #efe4d2;
+  --color-paper: #fbf6ee;
+  --color-ink: #2a2226;
+  --color-ink-soft: #5a4d4f;
+  --color-muted: #8c7f7a;
+  --color-faint: #b9ab9c;
+  --color-line: #e2d6c3;
+  --color-peach: #e9967a;
+  --color-peach-soft: #f6cdbb;
+  --color-skeleton: #e6daca;
+
+  /* radius */
+  --radius-card: 32px;
+  --radius-card-mobile: 28px;
+  --radius-inner: 20px;
+  --radius-pill: 999px;
+
+  /* stroke */
+  --stroke-outline: 2px;
+  --stroke-tag: 1.5px;
+
+  /* space */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 36px;
+  --space-7: 56px;
+  --space-8: 96px;
+  --space-9: 128px;
+
+  /* text */
+  --text-display: 96px;
+  --text-h1: 76px;
+  --text-h2: 64px;
+  --text-h3: 40px;
+  --text-h4: 30px;
+  --text-lead: 21px;
+  --text-body: 17px;
+  --text-small: 14px;
+  --text-mono: 14px;
+
+  /* motion: FigCraft stores these as numbers, CSS needs time units */
+  --motion-fast: 150ms;
+  --motion-base: 250ms;
+  --motion-slow: 450ms;
+  --motion-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --motion-ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* font stacks, connected to next/font in app/layout.tsx */
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  background-color: #fbfbf7;
-  color: #111113;
-}
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+  }
 
-::selection {
-  background-color: #d7ff3f;
-  color: #111113;
-}
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    font-variation-settings: 'SOFT' 100, 'WONK' 0;
+  }
 
-/* halftone dot texture, bolder than a subtle blueprint grid */
-.grid-texture {
-  background-image: radial-gradient(rgba(17, 17, 19, 0.14) 1.5px, transparent 1.5px);
-  background-size: 22px 22px;
-}
+  .font-display {
+    font-variation-settings: 'SOFT' 100, 'WONK' 0;
+  }
 
-.text-balance {
-  text-wrap: balance;
+  :focus-visible {
+    outline: var(--stroke-outline) solid var(--color-ink);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-peach-soft);
+    color: var(--color-ink);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-drift,
-  .animate-drift-slow,
-  .animate-blink,
-  .animate-grain {
-    animation: none !important;
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

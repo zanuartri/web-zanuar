@@ -1,27 +1,15 @@
-import { projects } from '@/lib/projects';
-import { Hero } from '@/components/hero';
-import { SectionReveal } from '@/components/section-reveal';
-import { ProjectCard } from '@/components/project-card';
+import { Container } from '@/components/ui/container';
 
 export default function HomePage() {
   return (
-    <div className="space-y-16 sm:space-y-24">
-      <Hero />
-
-      <section className="space-y-8">
-        <SectionReveal>
-          <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink/40">
-            // case studies
-          </h2>
-        </SectionReveal>
-        <div className="space-y-6">
-          {projects.map((project, i) => (
-            <SectionReveal key={project.slug} delay={i * 0.08}>
-              <ProjectCard project={project} />
-            </SectionReveal>
-          ))}
-        </div>
+    <main>
+      <section className="pb-16 pt-14 xl:pb-24">
+        <Container>
+          <h1 className="max-w-[620px] font-display text-[52px] leading-[54px] tracking-[-0.025em] text-ink md:text-[76px] md:leading-[78px] xl:text-display">
+            A field guide to coding with agents.
+          </h1>
+        </Container>
       </section>
-    </div>
+    </main>
   );
 }
