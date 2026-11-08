@@ -29,6 +29,13 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://zanuar.dev'),
   title: 'zanuar',
   description: 'Small, friendly tools I build for the moments an agent gets stuck.',
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+    ],
+    apple: [{ url: '/apple-icon.png', sizes: '180x180' }],
+  },
 };
 
 export default function RootLayout({
