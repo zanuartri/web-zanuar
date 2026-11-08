@@ -32,7 +32,7 @@ export default function HerdrRigPage() {
       />
 
       <Reveal>
-        <section className="pb-12 md:pb-16 xl:pb-[120px]">
+        <section className="pb-12 md:pb-16 xl:pb-[88px]">
           <Container>
             <Screenshot
               src={demo.src}

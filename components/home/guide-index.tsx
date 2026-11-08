@@ -31,7 +31,7 @@ export function GuideIndex() {
                     {entry.number}
                   </span>
 
-                  <span className="flex-1 font-display font-display-row text-[18px] font-semibold leading-[48px] text-ink md:text-[28px] md:leading-tight xl:text-[30px]">
+                  <span className="flex-1 font-display font-display-row text-[18px] font-semibold leading-[48px] text-ink md:text-[27px] md:leading-tight">
                     <span className="mr-3 md:hidden">{entry.number}</span>
                     {entry.title}
                   </span>

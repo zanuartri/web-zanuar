@@ -39,11 +39,11 @@
   --space-9: 128px;
 
   /* text */
-  --text-display: 96px;
-  --text-h1: 76px;
-  --text-h2: 64px;
-  --text-h3: 40px;
-  --text-h4: 30px;
+  --text-display: 76px;
+  --text-h1: 60px;
+  --text-h2: 50px;
+  --text-h3: 34px;
+  --text-h4: 27px;
   --text-lead: 21px;
   --text-body: 17px;
   --text-small: 14px;

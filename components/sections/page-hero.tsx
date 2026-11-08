@@ -49,7 +49,7 @@ export function PageHero({
               {tag}
             </Tag>
 
-            <h1 className="font-display text-[76px] leading-[76px] tracking-[-0.03em] text-ink md:text-[96px] md:leading-[94px] xl:text-[150px] xl:leading-[140px]">
+            <h1 className="font-display text-[65px] leading-[65px] tracking-[-0.03em] text-ink md:text-[117px] md:leading-[109px]">
               {title}
             </h1>
 

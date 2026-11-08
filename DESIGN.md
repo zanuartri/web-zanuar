@@ -36,9 +36,11 @@ Stroke: `outline` 2px, `tag` 1.5px.
 Space: `1` 4, `2` 8, `3` 12, `4` 16, `5` 24, `6` 36, `7` 56, `8` 96, `9` 128.
 The 390 mobile frame uses 20px side padding, which is outside this scale.
 
-Type: `display` 96, `h1` 76, `h2` 64, `h3` 40, `h4` 30, `lead` 21,
-`body` 17, `small` 14, `mono` 14. Mobile sizes for display and headings are
-52, 40, 36, and 28 respectively.
+Type: `display` 76, `h1` 60, `h2` 50, `h3` 34, `h4` 27, `lead` 21,
+`body` 17, `small` 14, `mono` 14. Below 768 the display and heading scale
+multiplies by 0.86: 45, 34, 31, 24. Page heroes are the drawn exceptions:
+the homepage title is 75 desktop and 45 mobile, project titles are 117
+desktop and 65 mobile.
 
 Motion: `fast` 150ms, `base` 250ms, `slow` 450ms. Easing: `out`
 `cubic-bezier(0.2, 0.8, 0.2, 1)` and `pop`
@@ -63,6 +65,10 @@ Fonts are loaded with `next/font/local` from `app/fonts/`.
 
 `components/ui/container.tsx` implements this padding and max width. Use it for
 every page section instead of repeating the shell classes.
+
+On desktop, sections breathe with 88px of vertical padding, full-width bands
+use 80px, the footer starts 88px below its preceding section, and the homepage
+ZRouter teaser starts 56px below the guide index.
 
 ## Components
 

@@ -14,9 +14,9 @@ export type PromiseCardsProps = {
 
 export function PromiseCards({ heading, items }: PromiseCardsProps) {
   return (
-    <section className="pb-12 md:pb-16 xl:pb-[120px]">
+    <section className="pb-12 md:pb-16 xl:pb-[88px]">
       <Container className="flex flex-col gap-[14px] md:gap-10">
-        <h2 className="font-display text-[36px] leading-[39px] tracking-[-0.02em] text-ink md:text-[52px] md:leading-[56px] xl:text-[64px] xl:leading-[66px]">
+        <h2 className="font-display text-[36px] leading-[39px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[52px]">
           {heading}
         </h2>
 
@@ -26,7 +26,7 @@ export function PromiseCards({ heading, items }: PromiseCardsProps) {
               key={item.title}
               className="flex flex-col gap-2 rounded-card-mobile border-2 border-ink bg-paper p-[22px] md:p-[28px] xl:gap-[14px] xl:rounded-card xl:p-[36px]"
             >
-              <h3 className="font-display text-[26px] leading-[32px] text-ink md:text-[30px] md:leading-[36px] xl:text-[34px] xl:leading-[38px]">
+              <h3 className="font-display text-[26px] leading-[32px] text-ink md:text-[31px] md:leading-[35px]">
                 {item.title}
               </h3>
               <p className="text-[15px] leading-[23px] text-ink-soft md:text-[16px] md:leading-[25px]">

@@ -8,7 +8,7 @@ import { ZRouterDemoFrame } from './demo-boundary';
 
 export function ZRouterSection() {
   return (
-    <section id="zrouter" className="scroll-mt-6 pb-14 pt-[24px] md:pb-20 xl:pb-[120px] xl:pt-[64px]">
+    <section id="zrouter" className="scroll-mt-6 pb-14 pt-[24px] md:pb-20 xl:pb-[88px] xl:pt-[56px]">
       <Container className="flex flex-col gap-[18px] xl:gap-10">
         <div className="flex flex-col gap-[18px] xl:grid xl:grid-cols-[minmax(0,648fr)_440fr] xl:items-end xl:gap-24">
           <div className="flex flex-col gap-[18px] xl:min-w-0 xl:gap-[20px]">
@@ -23,7 +23,7 @@ export function ZRouterSection() {
                 {ZROUTER.status}
               </Tag>
             </div>
-            <h2 className="font-display text-[40px] leading-[42px] tracking-[-0.02em] text-ink md:text-[56px] md:leading-[58px] xl:text-h1">
+            <h2 className="font-display text-[34px] leading-[36px] tracking-[-0.02em] text-ink md:text-[59px] md:leading-[62px]">
               {ZROUTER.title}
             </h2>
           </div>

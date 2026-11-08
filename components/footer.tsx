@@ -12,9 +12,9 @@ export function Footer() {
   const xHref = SOCIAL_LINKS.x || undefined;
 
   return (
-    <footer className="pb-10 pt-14 md:pb-16 md:pt-28">
+    <footer className="pb-10 pt-14 md:pb-16 md:pt-[88px]">
       <Container>
-        <h2 className="max-w-[760px] font-display text-[36px] leading-[39px] tracking-[-0.02em] text-ink md:text-[64px] md:leading-[66px]">
+        <h2 className="max-w-[760px] font-display text-[36px] leading-[39px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[52px]">
           If you build with agents too, come say hi.
         </h2>
 
