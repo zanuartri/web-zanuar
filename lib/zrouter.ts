@@ -19,7 +19,7 @@ export const ZROUTER = {
       {
         name: '+ Your gateway next',
         note: 'ask for a preset on GitHub',
-        href: 'https://github.com/zanuartri/zrouter/issues',
+        href: SOCIAL_LINKS.github,
       },
     ],
   },
