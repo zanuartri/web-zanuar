@@ -112,7 +112,7 @@ export function ZRouterDemo() {
   const toggle = () => setUp((value) => !value);
 
   return (
-    <div className="mx-auto w-full max-w-[350px] rounded-card-mobile border-2 border-ink bg-paper p-[20px] xl:aspect-[1184/470] xl:max-w-none xl:rounded-card xl:p-0">
+    <div className="mx-auto w-full max-w-[350px] rounded-card-mobile border-2 border-ink bg-paper p-[20px] xl:h-[360px] xl:max-w-none xl:rounded-card xl:border-0 xl:p-0 xl:shadow-[inset_0_0_0_2px_var(--color-ink)]">
       <span className="sr-only">
         {up
           ? 'Diagram: your agent reaches ZRouter, which routes to provider a while kenari.id is on standby.'
@@ -120,30 +120,61 @@ export function ZRouterDemo() {
       </span>
 
       <div className="relative hidden h-full w-full xl:block">
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 1184 470"
-          className="h-full w-full"
-          fill="none"
-        >
-          <rect x="128" y="200" width="200" height="64" rx="32" className="fill-paper stroke-ink" strokeWidth={2} />
-          <text x="228" y="232" textAnchor="middle" dominantBaseline="central" className="fill-ink font-mono text-[15px] font-medium">
+        <svg aria-hidden="true" viewBox="0 0 1080 360" className="h-full w-full" fill="none">
+          <rect
+            x="88"
+            y="153"
+            width="200"
+            height="64"
+            rx="32"
+            className="fill-white stroke-ink"
+            strokeWidth={2}
+          />
+          <text
+            x="188"
+            y="185"
+            textAnchor="middle"
+            dominantBaseline="central"
+            className="fill-ink font-mono text-[15px] font-medium"
+          >
             your agent
           </text>
 
-          <line x1="328" y1="232" x2="416" y2="232" strokeWidth={2.5} className="stroke-ink" />
+          <line x1="288" y1="184" x2="376" y2="184" strokeWidth={2.5} className="stroke-ink" />
 
-          <rect x="416" y="200" width="200" height="64" rx="32" className="fill-ink stroke-ink" strokeWidth={2} />
-          <text x="516" y="232" textAnchor="middle" dominantBaseline="central" className="fill-paper font-sans text-[17px] font-bold">
+          <rect
+            x="376"
+            y="153"
+            width="200"
+            height="64"
+            rx="32"
+            className="fill-ink stroke-ink"
+            strokeWidth={2}
+          />
+          <text
+            x="476"
+            y="185"
+            textAnchor="middle"
+            dominantBaseline="central"
+            className="fill-paper font-sans text-[17px] font-bold"
+          >
             ZRouter
           </text>
 
-          <Connector d="M616 232 C 672 232 712 132 776 132" active={up} />
-          <Connector d="M616 232 C 672 232 712 332 776 332" active={!up} />
+          <Connector d="M576 185 C 626 185 626 105 676 105" active={up} />
+          <Connector d="M576 185 C 626 185 626 265 676 265" active={!up} />
+
+          <circle
+            cx="627"
+            cy="229"
+            r="7"
+            strokeWidth={2}
+            className="fill-peach stroke-ink"
+          />
 
           <rect
-            x="776"
-            y="100"
+            x="676"
+            y="73"
             width="220"
             height="64"
             rx="32"
@@ -155,33 +186,58 @@ export function ZRouterDemo() {
             )}
           />
           <text
-            x="886"
-            y="132"
+            x="786"
+            y="105"
             textAnchor="middle"
             dominantBaseline="central"
             className={cn(
               'font-mono text-[15px] font-medium',
-              up ? 'fill-ink' : 'fill-faint line-through'
+              up ? 'fill-ink' : 'fill-faint'
             )}
-            textDecoration={up ? undefined : 'line-through'}
           >
             provider a
           </text>
-          <text x="1020" y="132" dominantBaseline="central" className={cn('font-mono text-[14px]', up ? 'fill-ink' : 'fill-faint')}>
+          <text
+            x="916"
+            y="105"
+            dominantBaseline="central"
+            className={cn('font-mono text-[14px]', up ? 'fill-ink' : 'fill-faint')}
+          >
             {up ? 'answering' : 'taking a nap'}
           </text>
 
-          <rect x="776" y="300" width="220" height="64" rx="32" strokeWidth={2} className={cn('stroke-ink transition-colors duration-slow ease-out', up ? 'fill-paper' : 'fill-peach-soft')} />
-          <text x="886" y="332" textAnchor="middle" dominantBaseline="central" className="fill-ink font-mono text-[15px] font-medium">
+          <rect
+            x="676"
+            y="233"
+            width="220"
+            height="64"
+            rx="32"
+            strokeWidth={2}
+            className={cn('stroke-ink transition-colors duration-slow ease-out', up ? 'fill-paper' : 'fill-peach-soft')}
+          />
+          <text
+            x="786"
+            y="265"
+            textAnchor="middle"
+            dominantBaseline="central"
+            className="fill-ink font-mono text-[15px] font-medium"
+          >
             kenari.id
           </text>
-          <text x="1020" y="321" className={cn('font-mono text-[14px]', up ? 'fill-faint' : 'fill-ink')}>
+          <text
+            x="916"
+            y="254"
+            dominantBaseline="central"
+            className={cn('font-mono text-[14px]', up ? 'fill-faint' : 'fill-ink')}
+          >
             {up ? (
               'on standby'
             ) : (
               <>
-                <tspan x="1020">local gateway,</tspan>
-                <tspan x="1020" dy="22">
+                <tspan x="916" dy="0">
+                  local gateway,
+                </tspan>
+                <tspan x="916" dy="22">
                   next in line
                 </tspan>
               </>
@@ -189,9 +245,12 @@ export function ZRouterDemo() {
           </text>
         </svg>
 
-        <Toggle up={up} onToggle={toggle} className="absolute left-[4%] top-[8.5%]" />
+        <Toggle up={up} onToggle={toggle} className="absolute left-[40px] top-[32px]" />
 
-        <p aria-live="polite" className="absolute bottom-[8%] left-[4%] text-[14px] text-muted">
+        <p
+          aria-live="polite"
+          className="absolute left-[40px] top-[322px] text-[14px] leading-[18px] text-muted"
+        >
           {up ? NOTE_UP : NOTE_DOWN}
         </p>
       </div>
