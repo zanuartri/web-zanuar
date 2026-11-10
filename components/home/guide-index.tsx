@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 
 export function GuideIndex() {
   return (
-    <section id="guide" className="scroll-mt-6 pb-14 xl:pb-24">
+    <section id="guide" className="scroll-mt-6 pb-14 xl:pb-section">
       <Container>
         <div className="rounded-card-mobile border-2 border-ink bg-paper px-[20px] pb-3 pt-[24px] md:rounded-card md:px-10 md:pb-[28px] md:pt-[36px]">
           <p className="text-sm font-medium text-muted md:text-[15px]">In this guide</p>

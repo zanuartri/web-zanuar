@@ -5,7 +5,7 @@ import { ABOUT, HERO } from '@/lib/content';
 export function About() {
   return (
     <section id="about" className="scroll-mt-6 border-y-2 border-ink bg-paper">
-      <Container className="flex flex-col gap-[18px] py-12 xl:flex-row xl:items-center xl:gap-[72px] xl:py-[80px]">
+      <Container className="flex flex-col gap-[18px] py-12 xl:flex-row xl:items-center xl:gap-[72px] xl:py-7">
         <div className="h-[112px] w-[112px] shrink-0 overflow-hidden rounded-pill border-[2.5px] border-ink bg-avatar md:h-[160px] md:w-[160px] xl:h-[220px] xl:w-[220px]">
           <Image
             src="/avatar.png"

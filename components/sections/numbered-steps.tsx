@@ -23,7 +23,7 @@ export function NumberedSteps({
   return (
     <section
       id={id}
-      className="scroll-mt-6 border-y-2 border-ink bg-paper py-16 md:py-20 xl:py-[80px]"
+      className="scroll-mt-6 border-y-2 border-ink bg-paper py-16 md:py-20 xl:py-section"
     >
       <Container className="flex flex-col gap-[32px] md:gap-[40px] xl:gap-[48px]">
         <h2 className="font-display text-[36px] leading-[39px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[52px]">

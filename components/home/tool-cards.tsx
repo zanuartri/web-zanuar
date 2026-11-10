@@ -44,7 +44,7 @@ function NothingPublished() {
 
 export function ToolCards() {
   return (
-    <section aria-label="Smaller tools" className="pb-14 md:pb-20 xl:pb-[88px]">
+    <section aria-label="Smaller tools" className="pb-14 md:pb-20 xl:pb-section">
       <Container>
         {TOOL_CARDS.length === 0 ? (
           <NothingPublished />
@@ -54,7 +54,7 @@ export function ToolCards() {
               <article
                 key={card.id}
                 id={card.id}
-                className="flex scroll-mt-[32px] flex-col gap-[10px] rounded-card-mobile border-2 border-ink bg-paper p-[24px] md:gap-[18px] md:rounded-card xl:p-[36px]"
+                className="flex scroll-mt-[32px] flex-col gap-[10px] rounded-card-mobile border-2 border-ink bg-paper p-[24px] md:gap-[18px] md:rounded-card xl:p-card"
               >
                 <div className="flex items-center justify-between gap-4">
                   <span className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-pill border-2 border-ink font-mono text-[15px] font-medium text-ink md:flex">

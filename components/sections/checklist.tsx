@@ -22,8 +22,8 @@ export function Checklist({
   accentFirst = false,
 }: ChecklistProps) {
   return (
-    <section className="pb-14 md:pb-20 xl:pb-[88px]">
-      <Container className="flex flex-col gap-[14px] md:gap-10 xl:grid xl:grid-cols-[minmax(0,1fr)_648px] xl:items-start xl:gap-24">
+    <section className="pb-14 md:pb-20 xl:pb-section">
+      <Container className="flex flex-col gap-[14px] md:gap-10 xl:grid xl:grid-cols-[minmax(0,1fr)_544px] xl:items-start xl:gap-24">
         <h2 className="font-display text-[36px] leading-[39px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[52px]">
           {heading}
         </h2>

@@ -17,7 +17,7 @@ export function DarkCallout({
   items,
 }: DarkCalloutProps) {
   return (
-    <section className="pb-12 md:pb-16 xl:pb-[88px]">
+    <section className="pb-12 md:pb-16 xl:pb-section">
       <Container>
         <div className="rounded-card-mobile bg-ink px-[24px] py-[28px] md:rounded-card md:p-12 xl:grid xl:grid-cols-2 xl:gap-[72px] xl:p-14">
           <div className="flex flex-col gap-[14px] md:gap-[18px]">

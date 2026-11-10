@@ -30,7 +30,7 @@ export default function ZRouterPage() {
       />
 
       <Reveal>
-        <section className="pb-12 md:pb-16 xl:pb-[88px]">
+        <section className="pb-12 md:pb-16 xl:pb-section">
           <Container>
             <ZRouterDemoFrame />
           </Container>
@@ -71,7 +71,7 @@ export default function ZRouterPage() {
       </Reveal>
 
       <Reveal className="hidden md:block">
-        <section className="py-16 md:py-20 xl:py-[88px]">
+        <section className="py-16 md:py-20 xl:py-section">
           <Container>
             <div className="flex flex-col gap-6 xl:flex-row xl:items-end xl:justify-between xl:gap-24">
               <h2 className="max-w-[640px] font-display text-[50px] leading-[54px] tracking-[-0.02em] text-ink">
