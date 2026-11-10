@@ -22,7 +22,7 @@ export function Hero() {
           </div>
 
           <div className="motion-bubble absolute right-[32px] top-[8px] rounded-[20px] border-2 border-ink bg-paper px-4 py-[9px] text-[15px] font-semibold text-ink xl:right-[15.4%] xl:top-[3.9%] xl:rounded-[22px] xl:px-[20px] xl:py-3 xl:text-[17px]">
-            {HERO.bubble}
+            <span className="motion-bubble-wiggle block">{HERO.bubble}</span>
           </div>
 
           <span

@@ -213,6 +213,18 @@
   }
 }
 
+/* The avatar's tilt stays on transform; the float moves the independent
+   translate property, so both animations can run on one element. */
+@keyframes avatar-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -4px;
+  }
+}
+
 /* Loading blocks: the real layout stays, only the fill breathes. */
 @keyframes skeleton-pulse {
   from {
@@ -230,11 +242,30 @@
 @keyframes bubble-pop {
   from {
     opacity: 0;
-    transform: scale(0.8) rotate(4deg);
+    transform: scale(0.9) rotate(4deg);
   }
   to {
     opacity: 1;
     transform: scale(1) rotate(4deg);
+  }
+}
+
+@keyframes bubble-wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes gateway-dash {
+  to {
+    stroke-dashoffset: -11;
   }
 }
 
@@ -243,15 +274,42 @@
 }
 
 .motion-bubble {
-  animation: bubble-pop var(--motion-base) var(--motion-ease-pop) 200ms both;
+  animation: bubble-pop var(--motion-base) var(--motion-ease-pop) 400ms both;
+}
+
+.motion-dash {
+  animation: gateway-dash var(--motion-loop-dash) linear infinite;
+}
+
+/* Desktop only: the float and the hover wiggle are the 1440 motion pass. */
+@media (min-width: 1200px) {
+  .motion-avatar {
+    animation:
+      avatar-tilt var(--motion-slow) var(--motion-ease-out) both,
+      avatar-float var(--motion-loop-float) ease-in-out var(--motion-slow)
+        infinite;
+  }
+
+  .motion-bubble:hover .motion-bubble-wiggle {
+    animation: bubble-wiggle var(--motion-base) var(--motion-ease-out);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .motion-bubble {
-    animation-delay: 0s;
+  .motion-avatar {
+    animation: none;
+    transform: rotate(-3deg);
   }
 
-  .motion-skeleton {
+  .motion-bubble {
+    animation: none;
+    transform: rotate(4deg);
+  }
+
+  .motion-skeleton,
+  .motion-bubble-wiggle,
+  .motion-bubble:hover .motion-bubble-wiggle,
+  .motion-dash {
     animation: none;
   }
 }
