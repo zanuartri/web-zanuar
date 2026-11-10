@@ -31,7 +31,7 @@ export function LocalGateways({ eyebrow, heading, body, rows }: LocalGatewaysPro
             </p>
           </div>
 
-          <ul className="flex flex-col gap-[12px]">
+          <ul data-reveal-group="gateway" className="flex flex-col gap-[12px]">
             {rows.map((row) => {
               const content = (
                 <>
@@ -44,10 +44,10 @@ export function LocalGateways({ eyebrow, heading, body, rows }: LocalGatewaysPro
                 </>
               );
               const className = cn(
-                'flex h-[72px] flex-col justify-center gap-[2px] rounded-[18px] bg-paper px-4 py-[14px] transition-colors duration-fast',
+                'relative flex h-[72px] flex-col justify-center gap-[2px] rounded-[18px] bg-paper px-4 py-[14px] transition-colors duration-fast',
                 'xl:h-[59px] xl:flex-row xl:items-center xl:justify-between xl:gap-4 xl:px-[20px] xl:py-4',
                 row.href
-                  ? 'border-[1.5px] border-dashed border-ink bg-transparent hover:bg-cream xl:h-[58px]'
+                  ? 'border-[1.5px] border-dashed border-ink bg-transparent hover:bg-cream xl:h-[58px] xl:border-0'
                   : 'border-2 border-ink'
               );
 
@@ -56,6 +56,25 @@ export function LocalGateways({ eyebrow, heading, body, rows }: LocalGatewaysPro
                   {row.href ? (
                     <a href={row.href} target="_blank" rel="noopener noreferrer" className={className}>
                       {content}
+                      <svg
+                        aria-hidden
+                        className="pointer-events-none absolute inset-0 hidden h-full w-full text-ink xl:block"
+                        viewBox="0 0 500 58"
+                        preserveAspectRatio="none"
+                      >
+                        <rect
+                          x="0.75"
+                          y="0.75"
+                          width="498.5"
+                          height="56.5"
+                          rx="17.25"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeDasharray="6 5"
+                          className="motion-dash"
+                        />
+                      </svg>
                     </a>
                   ) : (
                     <div className={className}>{content}</div>
