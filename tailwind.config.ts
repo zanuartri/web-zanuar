@@ -42,8 +42,17 @@ const config: Config = {
         7: 'var(--space-7)',
         8: 'var(--space-8)',
         9: 'var(--space-9)',
+        card: 'var(--space-card)',
+        section: 'var(--space-section)',
+        close: 'var(--space-close)',
+        footer: 'var(--space-footer)',
+      },
+      maxWidth: {
+        content: 'var(--content)',
+        wide: 'var(--content-wide)',
       },
       fontSize: {
+        close: ['var(--text-close)', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
         display: ['var(--text-display)', { lineHeight: '1', letterSpacing: '-0.025em' }],
         h1: ['var(--text-h1)', { lineHeight: '1.03', letterSpacing: '-0.025em' }],
         h2: ['var(--text-h2)', { lineHeight: '1.12', letterSpacing: '-0.02em' }],

@@ -39,6 +39,14 @@
   --space-8: 96px;
   --space-9: 128px;
 
+  /* layout: desktop grid and rhythm, from frames 1024, 1213 and 2014 */
+  --content: 1080px;
+  --content-wide: 1184px;
+  --space-card: 28px;
+  --space-section: 72px;
+  --space-close: 48px;
+  --space-footer: 64px;
+
   /* text */
   --text-display: 76px;
   --text-h1: 60px;
@@ -49,6 +57,8 @@
   --text-body: 17px;
   --text-small: 14px;
   --text-mono: 14px;
+  /* the footer close line, drawn at 40 on desktop */
+  --text-close: 40px;
 
   /* motion: FigCraft stores these as numbers, CSS needs time units */
   --motion-fast: 150ms;

@@ -55,7 +55,7 @@ export function Nav() {
 
   return (
     <header>
-      <Container className="flex h-[68px] items-center justify-between md:h-[84px]">
+      <Container wide className="flex h-[68px] items-center justify-between md:h-[84px]">
         <Link
           href="/"
           onClick={closeMenu}

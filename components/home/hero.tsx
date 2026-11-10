@@ -6,8 +6,8 @@ import { cn } from '@/lib/utils';
 
 export function Hero() {
   return (
-    <section className="pb-14 pt-4 xl:pb-40 xl:pt-24">
-      <Container className="flex flex-col gap-[22px] md:gap-[28px] xl:flex-row xl:items-center xl:justify-between xl:gap-[6%]">
+    <section className="pb-14 pt-4 xl:pb-16 xl:pt-24">
+      <Container wide className="flex flex-col gap-[22px] md:gap-[28px] xl:flex-row xl:items-center xl:justify-between xl:gap-[6%]">
         <div className="relative order-first h-[300px] w-[350px] shrink-0 xl:order-last xl:aspect-[470/560] xl:h-auto xl:w-[39.7%]">
           <div className="motion-avatar absolute left-[47px] top-[23px] h-[260px] w-[260px] overflow-hidden rounded-[28px] border-[2.5px] border-ink bg-avatar xl:left-[6.8%] xl:top-[10.5%] xl:h-auto xl:w-[91.5%] xl:aspect-square xl:rounded-[36px]">
             <Image
