@@ -92,6 +92,7 @@ export default function HerdrRigPage() {
           heading={tested.heading}
           items={tested.items}
           itemsMobile={tested.itemsMobile}
+          cardClassName="xl:min-h-[366px]"
         />
       </Reveal>
     </main>

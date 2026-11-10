@@ -27,7 +27,7 @@ export function PromiseCards({ heading, items, bodySmall = false }: PromiseCards
           {items.map((item) => (
             <li
               key={item.title}
-              className="flex flex-col gap-2 rounded-card-mobile border-2 border-ink bg-paper p-[22px] md:p-card xl:min-h-[241px] xl:gap-[14px] xl:rounded-card xl:p-card"
+              className="flex flex-col gap-2 rounded-card-mobile border-2 border-ink bg-paper p-[22px] md:p-card xl:h-[241px] xl:gap-[14px] xl:rounded-card xl:p-card"
             >
               <h3 className="font-display text-[26px] leading-[32px] text-ink md:text-[31px] md:leading-[35px] xl:leading-[34px]">
                 {item.title}
