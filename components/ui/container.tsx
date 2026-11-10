@@ -17,6 +17,7 @@ type ContainerProps = HTMLAttributes<HTMLDivElement> & {
 export function Container({ className, wide = false, ...props }: ContainerProps) {
   return (
     <div
+      data-reveal-group=""
       className={cn(
         'mx-auto w-full max-w-[1440px] px-[20px] md:px-12',
         wide ? 'xl:px-32' : 'xl:max-w-content xl:px-0',

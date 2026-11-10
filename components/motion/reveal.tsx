@@ -6,12 +6,15 @@ import { cn } from '@/lib/utils';
 
 /**
  * Section reveal: fade in and rise 12px, once, when a section scrolls into
- * view. The animation itself is CSS (`motion/slow`, ease-out); Framer Motion
- * only supplies the in-view and reduced-motion signals CSS cannot.
+ * view, with the direct children of `[data-reveal-group]` staggering 60ms.
+ * All motion is CSS (`motion/slow`, ease-out); Framer Motion only supplies
+ * the in-view and reduced-motion signals CSS cannot.
  *
  * Anything already on screen at first paint stays untouched, so a section
  * below the fold is the only thing that can animate and the page reads whole
- * with scripting off.
+ * with scripting off. `data-reveal-group` marks the element whose children
+ * should stagger (the `Container` shell by default, plus the guide and
+ * gateway lists). Utilities live in app/globals.css.
  */
 export function Reveal({
   children,
@@ -26,7 +29,10 @@ export function Reveal({
   const [armed, setArmed] = useState(false);
 
   useEffect(() => {
-    if (reduce) return;
+    if (reduce) {
+      setArmed(false);
+      return;
+    }
 
     const node = ref.current;
     if (!node) return;
@@ -36,11 +42,9 @@ export function Reveal({
   return (
     <div
       ref={ref}
-      className={cn(
-        'transition-[opacity,transform] duration-slow ease-out motion-reduce:transition-none',
-        armed && !inView && 'translate-y-3 opacity-0',
-        className
-      )}
+      data-reveal=""
+      data-state={armed && !inView ? 'out' : 'in'}
+      className={cn('reveal', className)}
     >
       {children}
     </div>

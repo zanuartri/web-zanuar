@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { Footer } from '@/components/footer';
+import { Reveal } from '@/components/motion/reveal';
 import { Nav } from '@/components/nav';
 import './globals.css';
 
@@ -50,7 +51,9 @@ export default function RootLayout({
       <body className="min-h-screen bg-cream font-sans text-ink antialiased">
         <Nav />
         {children}
-        <Footer />
+        <Reveal>
+          <Footer />
+        </Reveal>
       </body>
     </html>
   );

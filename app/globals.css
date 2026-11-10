@@ -66,6 +66,10 @@
   --motion-slow: 450ms;
   --motion-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
   --motion-ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --motion-stagger: 60ms;
+  --motion-stagger-gateway: 80ms;
+  --motion-loop-float: 6s;
+  --motion-loop-dash: 8s;
 
   /* font stacks, connected to next/font in app/layout.tsx */
   --font-display: var(--font-fraunces), Georgia, serif;
@@ -138,6 +142,64 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Reveal: the wrapper fades, its content blocks rise 12px in 60ms steps.
+   Framer Motion only toggles data-state; the motion lives here. */
+.reveal {
+  transition: opacity var(--motion-slow) var(--motion-ease-out);
+}
+
+.reveal[data-state='out'] {
+  opacity: 0;
+}
+
+[data-reveal-group] {
+  --reveal-step: var(--motion-stagger);
+}
+
+[data-reveal-group='gateway'] {
+  --reveal-step: var(--motion-stagger-gateway);
+}
+
+.reveal [data-reveal-group] > * {
+  transition-property: opacity, transform;
+  transition-duration: var(--motion-slow);
+  transition-timing-function: var(--motion-ease-out);
+  transition-delay: 0ms;
+}
+
+.reveal[data-state='out'] [data-reveal-group] > * {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.reveal[data-state='in'] [data-reveal-group] > :nth-child(2) {
+  transition-delay: var(--reveal-step);
+}
+
+.reveal[data-state='in'] [data-reveal-group] > :nth-child(3) {
+  transition-delay: calc(var(--reveal-step) * 2);
+}
+
+.reveal[data-state='in'] [data-reveal-group] > :nth-child(4) {
+  transition-delay: calc(var(--reveal-step) * 3);
+}
+
+.reveal[data-state='in'] [data-reveal-group] > :nth-child(5) {
+  transition-delay: calc(var(--reveal-step) * 4);
+}
+
+.reveal[data-state='in'] [data-reveal-group] > :nth-child(6) {
+  transition-delay: calc(var(--reveal-step) * 5);
+}
+
+.reveal[data-state='in'] [data-reveal-group] > :nth-child(7) {
+  transition-delay: calc(var(--reveal-step) * 6);
+}
+
+.reveal[data-state='in'] [data-reveal-group] > :nth-child(8) {
+  transition-delay: calc(var(--reveal-step) * 7);
 }
 
 @keyframes avatar-tilt {
