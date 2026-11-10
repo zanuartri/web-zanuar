@@ -92,7 +92,8 @@ actions. The homepage ZRouter teaser no longer adds its own top space.
   1.5px ink outline and ink text. `idea` uses cream with muted text and no
   outline. `live` uses ink with paper text and no outline.
 - Card: paper fill, 2px ink outline, `card` radius (32, 28 below 768), and the
-  28px `card` padding on desktop.
+  28px `card` padding on desktop. The homepage tool cards keep 28 at every
+  width (frame 1123) and hold a 470x122 visual at radius 14.4.
 - Focus ring: 2px ink with a 2px offset on every link and button. It is set
   globally in `app/globals.css`, so do not add per-component rings.
 
