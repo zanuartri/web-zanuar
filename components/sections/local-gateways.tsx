@@ -23,7 +23,7 @@ export function LocalGateways({ eyebrow, heading, body, rows }: LocalGatewaysPro
             <p className="font-mono text-[13px] font-semibold uppercase leading-[19.5px] tracking-[0.08em] text-rust xl:font-sans xl:leading-[17px]">
               {eyebrow}
             </p>
-            <h2 className="font-display text-[36px] leading-[40px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[54px]">
+            <h2 className="font-display text-[36px] leading-[45px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[63px]">
               {heading}
             </h2>
             <p className="text-[16px] leading-[24px] text-ink-soft md:leading-[26px] xl:text-[18px] xl:leading-[28px] xl:text-ink">

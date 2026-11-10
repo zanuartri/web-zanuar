@@ -19,7 +19,7 @@ export function PromiseCards({ heading, items, bodySmall = false }: PromiseCards
   return (
     <section className="pb-12 md:pb-16 xl:pb-section">
       <Container className="flex flex-col gap-[14px] md:gap-10">
-        <h2 className="font-display text-[36px] leading-[39px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[52px] xl:leading-[51px]">
+        <h2 className="font-display text-[36px] leading-[45px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[63px]">
           {heading}
         </h2>
 
@@ -29,7 +29,7 @@ export function PromiseCards({ heading, items, bodySmall = false }: PromiseCards
               key={item.title}
               className="flex flex-col gap-2 rounded-card-mobile border-2 border-ink bg-paper p-[22px] md:p-card xl:h-[241px] xl:gap-[14px] xl:rounded-card xl:p-card"
             >
-              <h3 className="font-display text-[26px] leading-[32px] text-ink md:text-[31px] md:leading-[35px] xl:leading-[34px]">
+              <h3 className="font-display text-[26px] leading-[33px] text-ink md:text-[31px] md:leading-[39px]">
                 {item.title}
               </h3>
               <p

@@ -10,7 +10,7 @@ export function GuideIndex() {
         <div className="rounded-card-mobile border-2 border-ink bg-paper px-[20px] pb-3 pt-[24px] md:rounded-card md:px-10 md:pb-[28px] md:pt-[36px] xl:flex xl:items-center xl:gap-12 xl:p-card">
           <div className="hidden xl:flex xl:w-[280px] xl:shrink-0 xl:flex-col xl:gap-3">
             <p className="text-[15px] font-medium leading-[20px] text-muted">In this guide</p>
-            <p className="font-display text-[34px] font-semibold leading-[38px] text-ink">
+            <p className="font-display text-[34px] font-semibold leading-[43px] text-ink">
               Where agents get stuck.
             </p>
             <p className="text-[16px] leading-[25px] text-ink-soft">
@@ -45,7 +45,7 @@ export function GuideIndex() {
                     {entry.number}
                   </span>
 
-                  <span className="flex-1 font-display font-display-row text-[18px] font-semibold leading-[48px] text-ink transition-transform duration-fast ease-out md:text-[27px] md:leading-tight xl:text-[21px] xl:leading-[26px] xl:group-hover:translate-x-1">
+                  <span className="flex-1 font-display font-display-row text-[18px] font-semibold leading-[48px] text-ink transition-transform duration-fast ease-out md:text-[27px] md:leading-tight xl:text-[21px] xl:leading-[27px] xl:group-hover:translate-x-1">
                     <span className="mr-3 md:hidden">{entry.number}</span>
                     {entry.title}
                   </span>

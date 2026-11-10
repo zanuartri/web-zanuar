@@ -23,7 +23,7 @@ export function ZRouterSection() {
                 {ZROUTER.status}
               </Tag>
             </div>
-            <h2 className="font-display text-[34px] leading-[36px] tracking-[-0.02em] text-ink md:text-[59px] md:leading-[62px] xl:text-[50px] xl:leading-[54px] xl:tracking-[-0.025em]">
+            <h2 className="font-display text-[34px] leading-[43px] tracking-[-0.02em] text-ink md:text-[59px] md:leading-[74px] xl:text-[50px] xl:leading-[63px] xl:tracking-[-0.025em]">
               {ZROUTER.title}
             </h2>
           </div>

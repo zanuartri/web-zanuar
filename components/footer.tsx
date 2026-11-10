@@ -14,7 +14,7 @@ export function Footer() {
   return (
     <footer className="pb-10 pt-14 md:pb-16 md:pt-[88px] xl:pb-footer xl:pt-section">
       <Container>
-        <h2 className="max-w-[760px] font-display text-[36px] leading-[39px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[52px] xl:text-close">
+        <h2 className="max-w-[760px] font-display text-[36px] leading-[45px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[63px] xl:text-close">
           If you build with agents too, come say hi.
         </h2>
 

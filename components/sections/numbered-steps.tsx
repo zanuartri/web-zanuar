@@ -26,7 +26,7 @@ export function NumberedSteps({
       className="scroll-mt-6 border-y-2 border-ink bg-paper py-16 md:py-20 xl:py-section"
     >
       <Container className="flex flex-col gap-[32px] md:gap-[40px] xl:gap-[48px]">
-        <h2 className="font-display text-[36px] leading-[39px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[52px] xl:leading-[51px]">
+        <h2 className="font-display text-[36px] leading-[45px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[63px]">
           {heading}
         </h2>
 
@@ -43,7 +43,7 @@ export function NumberedSteps({
               >
                 {index + 1}
               </span>
-              <h3 className="font-display text-[26px] leading-[32px] text-ink md:text-[27px] md:leading-[32px] xl:leading-[33px]">
+              <h3 className="font-display text-[26px] leading-[33px] text-ink md:text-[27px] md:leading-[34px]">
                 {item.title}
               </h3>
               <p className="text-[15px] leading-[24px] text-ink-soft md:text-[16px] md:leading-[25px]">

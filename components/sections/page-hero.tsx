@@ -58,7 +58,7 @@ export function PageHero({
               {tag}
             </Tag>
 
-            <h1 className="font-display text-[65px] leading-[65px] tracking-[-0.03em] text-ink md:text-[117px] md:leading-[109px]">
+            <h1 className="font-display text-[65px] leading-[82px] tracking-[-0.03em] text-ink md:text-[117px] md:leading-[147px]">
               {title}
             </h1>
 

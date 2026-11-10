@@ -23,7 +23,7 @@ export default function NotFound() {
           404
         </span>
 
-        <h1 className="font-display text-[40px] leading-[42px] tracking-[-0.025em] text-ink md:text-[64px] md:leading-[67px] xl:text-[80px] xl:leading-[84px]">
+        <h1 className="font-display text-[40px] leading-[50px] tracking-[-0.025em] text-ink md:text-[64px] md:leading-[80px] xl:text-[80px] xl:leading-[100px]">
           This page took a nap.
         </h1>
 

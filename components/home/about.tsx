@@ -18,7 +18,7 @@ export function About() {
         </div>
 
         <div className="flex flex-col gap-[18px] xl:gap-[20px]">
-          <h2 className="font-display text-[34px] leading-[37px] tracking-[-0.02em] text-ink md:text-[44px] md:leading-[46px] xl:leading-[45px]">
+          <h2 className="font-display text-[34px] leading-[43px] tracking-[-0.02em] text-ink md:text-[44px] md:leading-[55px]">
             {ABOUT.title}
           </h2>
           <p className="max-w-[640px] text-[16px] leading-[26px] text-ink-soft md:text-[18px] md:leading-[29px] xl:text-[19px] xl:leading-[30px]">
