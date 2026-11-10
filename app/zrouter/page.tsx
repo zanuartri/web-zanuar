@@ -47,7 +47,7 @@ export default function ZRouterPage() {
       </Reveal>
 
       <Reveal>
-        <PromiseCards heading={promises.heading} items={promises.items} />
+        <PromiseCards heading={promises.heading} items={promises.items} bodySmall />
       </Reveal>
 
       <Reveal>

@@ -1,4 +1,5 @@
 import { Container } from '@/components/ui/container';
+import { cn } from '@/lib/utils';
 
 export type PromiseCard = {
   title: string;
@@ -10,13 +11,15 @@ export type PromiseCard = {
 export type PromiseCardsProps = {
   heading: string;
   items: readonly PromiseCard[];
+  /** Use the 15px desktop body drawn on the ZRouter frame, not the 16px one. */
+  bodySmall?: boolean;
 };
 
-export function PromiseCards({ heading, items }: PromiseCardsProps) {
+export function PromiseCards({ heading, items, bodySmall = false }: PromiseCardsProps) {
   return (
     <section className="pb-12 md:pb-16 xl:pb-section">
       <Container className="flex flex-col gap-[14px] md:gap-10">
-        <h2 className="font-display text-[36px] leading-[39px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[52px]">
+        <h2 className="font-display text-[36px] leading-[39px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[52px] xl:leading-[51px]">
           {heading}
         </h2>
 
@@ -24,12 +27,17 @@ export function PromiseCards({ heading, items }: PromiseCardsProps) {
           {items.map((item) => (
             <li
               key={item.title}
-              className="flex flex-col gap-2 rounded-card-mobile border-2 border-ink bg-paper p-[22px] md:p-card xl:gap-[14px] xl:rounded-card xl:p-card"
+              className="flex flex-col gap-2 rounded-card-mobile border-2 border-ink bg-paper p-[22px] md:p-card xl:min-h-[241px] xl:gap-[14px] xl:rounded-card xl:p-card"
             >
-              <h3 className="font-display text-[26px] leading-[32px] text-ink md:text-[31px] md:leading-[35px]">
+              <h3 className="font-display text-[26px] leading-[32px] text-ink md:text-[31px] md:leading-[35px] xl:leading-[34px]">
                 {item.title}
               </h3>
-              <p className="text-[15px] leading-[23px] text-ink-soft md:text-[16px] md:leading-[25px]">
+              <p
+                className={cn(
+                  'text-[15px] leading-[23px] text-ink-soft md:text-[16px] md:leading-[25px]',
+                  bodySmall && 'xl:text-[15px]'
+                )}
+              >
                 {item.bodyMobile ? (
                   <>
                     <span className="md:hidden">{item.bodyMobile}</span>
