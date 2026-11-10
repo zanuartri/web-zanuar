@@ -7,8 +7,8 @@ const tagVariants = cva(
   {
     variants: {
       variant: {
-        'in-the-works': 'border-tag border-ink bg-peach-soft text-ink',
-        'open-source': 'border-tag border-ink bg-peach-soft text-ink',
+        'in-the-works': 'border-tag border-ink xl:border-[length:var(--stroke-tag)] bg-peach-soft text-ink',
+        'open-source': 'border-tag border-ink xl:border-[length:var(--stroke-tag)] bg-peach-soft text-ink',
         idea: 'border-0 bg-cream text-muted',
         live: 'border-0 bg-ink text-paper',
       },
