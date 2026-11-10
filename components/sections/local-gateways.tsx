@@ -20,13 +20,13 @@ export function LocalGateways({ eyebrow, heading, body, rows }: LocalGatewaysPro
       <Container>
         <div className="grid gap-[24px] rounded-[24px] border-2 border-ink bg-peach-soft p-[24px] md:rounded-card xl:grid-cols-[minmax(0,1fr)_500px] xl:items-center xl:gap-[56px] xl:p-card">
           <div className="flex flex-col gap-[18px]">
-            <p className="font-mono text-[13px] font-semibold uppercase tracking-[0.08em] text-rust">
+            <p className="font-mono text-[13px] font-semibold uppercase leading-[19.5px] tracking-[0.08em] text-rust xl:font-sans xl:leading-[17px]">
               {eyebrow}
             </p>
             <h2 className="font-display text-[36px] leading-[40px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[54px]">
               {heading}
             </h2>
-            <p className="text-[16px] leading-[24px] text-ink-soft md:leading-[26px] xl:text-[18px] xl:leading-[28px]">
+            <p className="text-[16px] leading-[24px] text-ink-soft md:leading-[26px] xl:text-[18px] xl:leading-[28px] xl:text-ink">
               {body}
             </p>
           </div>
@@ -44,11 +44,11 @@ export function LocalGateways({ eyebrow, heading, body, rows }: LocalGatewaysPro
                 </>
               );
               const className = cn(
-                'flex h-[72px] flex-col justify-center gap-[2px] rounded-[18px] border-2 border-ink bg-paper px-4 py-[14px] transition-colors duration-fast',
-                'xl:h-[59px] xl:flex-row xl:items-center xl:justify-between xl:gap-4 xl:px-[22px] xl:py-0',
+                'flex h-[72px] flex-col justify-center gap-[2px] rounded-[18px] bg-paper px-4 py-[14px] transition-colors duration-fast',
+                'xl:h-[59px] xl:flex-row xl:items-center xl:justify-between xl:gap-4 xl:px-[20px] xl:py-4',
                 row.href
-                  ? 'border-dashed border-[1.5px] bg-transparent hover:bg-cream'
-                  : undefined
+                  ? 'border-[1.5px] border-dashed border-ink bg-transparent hover:bg-cream xl:h-[58px]'
+                  : 'border-2 border-ink'
               );
 
               return (
