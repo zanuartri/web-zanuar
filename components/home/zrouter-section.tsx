@@ -15,7 +15,7 @@ export function ZRouterSection() {
             <span className="inline-flex w-fit items-center rounded-pill border-tag border-ink bg-peach-soft px-3 py-1.5 text-[13px] font-semibold text-ink xl:hidden">
               {ZROUTER.number} · {ZROUTER.status}
             </span>
-            <div className="hidden xl:flex xl:flex-col xl:gap-5">
+            <div className="hidden xl:flex xl:flex-col xl:gap-[20px]">
               <span className="flex h-12 w-12 items-center justify-center rounded-pill bg-ink font-mono text-[18px] font-medium text-paper">
                 {ZROUTER.number}
               </span>
@@ -23,7 +23,7 @@ export function ZRouterSection() {
                 {ZROUTER.status}
               </Tag>
             </div>
-            <h2 className="font-display text-[34px] leading-[36px] tracking-[-0.02em] text-ink md:text-[59px] md:leading-[62px]">
+            <h2 className="font-display text-[34px] leading-[36px] tracking-[-0.02em] text-ink md:text-[59px] md:leading-[62px] xl:text-[50px] xl:leading-[54px] xl:tracking-[-0.025em]">
               {ZROUTER.title}
             </h2>
           </div>
@@ -38,13 +38,13 @@ export function ZRouterSection() {
 
         <ZRouterDemoFrame />
 
-        <div className="hidden xl:flex xl:items-center xl:justify-between xl:gap-6">
-          <ul className="flex max-w-[798px] flex-wrap gap-2">
+        <div className="hidden xl:flex xl:items-center xl:justify-between xl:gap-4">
+          <ul className="flex flex-1 flex-wrap gap-2">
             {ZROUTER.features.map((feature, index) => (
               <li
                 key={feature}
                 className={cn(
-                  'inline-flex h-[37px] items-center rounded-pill border-tag border-ink px-4 text-[14px] font-medium text-ink',
+                  'inline-flex h-[37px] items-center rounded-pill border-[length:var(--stroke-tag)] border-ink px-4 text-[14px] font-medium text-ink',
                   index === 0 ? 'bg-peach-soft' : 'bg-paper'
                 )}
               >
