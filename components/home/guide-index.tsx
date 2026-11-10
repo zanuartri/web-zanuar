@@ -21,7 +21,10 @@ export function GuideIndex() {
 
           <p className="text-sm font-medium text-muted md:text-[15px] xl:hidden">In this guide</p>
 
-          <ul className="mt-1 md:space-y-1 xl:mt-0 xl:min-w-0 xl:flex-1 xl:space-y-0">
+          <ul
+            data-reveal-group=""
+            className="mt-1 md:space-y-1 xl:mt-0 xl:min-w-0 xl:flex-1 xl:space-y-0"
+          >
             {GUIDE_ENTRIES.map((entry) => (
               <li
                 key={entry.href}
@@ -56,6 +59,21 @@ export function GuideIndex() {
                       {entry.meta}
                     </span>
                   )}
+
+                  <span
+                    aria-hidden
+                    className="hidden h-[18px] w-[18px] shrink-0 translate-x-2 items-center justify-center text-ink opacity-0 transition-[opacity,transform] duration-fast ease-out group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 xl:flex"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path
+                        d="M3 9h12m0 0-4.5-4.5M15 9l-4.5 4.5"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
                 </a>
               </li>
             ))}
