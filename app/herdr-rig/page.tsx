@@ -36,12 +36,12 @@ export default function HerdrRigPage() {
               src={demo.src}
               src2x={demo.src2x}
               src2xWidth={demo.src2xWidth}
-              sizes="(min-width: 1200px) 1184px, (min-width: 768px) calc(100vw - 96px), calc(100vw - 40px)"
+              sizes="(min-width: 1200px) 1080px, (min-width: 768px) calc(100vw - 96px), calc(100vw - 40px)"
               mobileSrc={demo.mobileSrc}
               width={demo.width}
               height={demo.height}
               alt={demo.alt}
-              aspectClassName="aspect-[820/470] md:aspect-[1184/743]"
+              aspectClassName="aspect-[820/470] md:aspect-[1184/743] xl:aspect-[1080/678]"
               priority
             />
           </Container>

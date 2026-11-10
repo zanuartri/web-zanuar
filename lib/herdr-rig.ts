@@ -10,11 +10,11 @@ export const HERDR_RIG = {
     secondary: { label: 'See how it works', href: '#how' },
   },
   demo: {
-    src: '/herdr-rig/hero-1184.webp',
+    src: '/herdr-rig/hero-1080.webp',
     src2x: '/herdr-rig/hero-1658.webp',
     src2xWidth: 1658,
-    width: 1184,
-    height: 743,
+    width: 1080,
+    height: 678,
     /* Below 768 the frame shows the board illustration instead of hero.png. */
     mobileSrc: '/herdr-rig/rig-board-1184.webp',
     alt: 'The herdr-rig board in the herdr desktop app: tickets grouped by what they need, each with its worker harness and model',

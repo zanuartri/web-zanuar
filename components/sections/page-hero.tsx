@@ -50,7 +50,7 @@ export function PageHero({
         </nav>
 
         <div className="flex flex-col gap-[18px] md:gap-[24px] xl:flex-row xl:items-end xl:justify-between xl:gap-24">
-          <div className="flex min-w-0 flex-col gap-[18px] md:gap-[24px] xl:max-w-[686px] xl:gap-[22px]">
+          <div className="flex min-w-0 flex-col gap-[18px] md:gap-[24px] xl:flex-1 xl:gap-[22px]">
             <Tag
               variant="open-source"
               className="w-fit text-[13px] px-3 py-[6px] md:text-[14px] md:px-[14px] md:py-[7px] xl:h-[35px] xl:leading-[18px]"
@@ -62,7 +62,9 @@ export function PageHero({
               {title}
             </h1>
 
-            <p className="max-w-[560px] text-[18px] leading-[27px] text-ink-soft md:text-[20px] md:leading-[30px] xl:text-[22px] xl:leading-[33px]">
+            {/* One pixel under the 560 frame: DM Sans variable shapes the
+                line a hair narrower, so the drawing's third line needs it. */}
+            <p className="max-w-[560px] text-[18px] leading-[27px] text-ink-soft md:text-[20px] md:leading-[30px] xl:max-w-[559px] xl:text-[22px] xl:leading-[33px]">
               {leadMobile ? (
                 <>
                   <span className="md:hidden">{leadMobile}</span>
