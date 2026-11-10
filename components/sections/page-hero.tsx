@@ -53,7 +53,7 @@ export function PageHero({
           <div className="flex min-w-0 flex-col gap-[18px] md:gap-[24px] xl:max-w-[686px] xl:gap-[22px]">
             <Tag
               variant="open-source"
-              className="w-fit text-[13px] px-3 py-[6px] md:text-[14px] md:px-[14px] md:py-[7px]"
+              className="w-fit text-[13px] px-3 py-[6px] md:text-[14px] md:px-[14px] md:py-[7px] xl:h-[35px] xl:leading-[18px]"
             >
               {tag}
             </Tag>
