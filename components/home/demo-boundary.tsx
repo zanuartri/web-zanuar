@@ -39,7 +39,7 @@ class DemoBoundary extends Component<DemoBoundaryProps, DemoBoundaryState> {
           </span>
         </div>
 
-        <h2 className="font-display text-[30px] leading-[36px] tracking-[-0.02em] text-ink md:text-[36px] md:leading-[44px]">
+        <h2 className="font-display text-[30px] leading-[38px] tracking-[-0.02em] text-ink md:text-[36px] md:leading-[45px]">
           The demo didn’t load.
         </h2>
         <p className="text-[15px] leading-[25px] text-ink-soft md:text-[16px]">

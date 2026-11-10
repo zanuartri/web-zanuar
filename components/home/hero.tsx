@@ -36,7 +36,7 @@ export function Hero() {
         </div>
 
         <div className="flex w-full flex-col gap-[22px] xl:w-auto xl:min-w-0 xl:max-w-[618px] xl:flex-1 xl:gap-[28px]">
-          <h1 className="font-display text-[45px] leading-[46px] tracking-[-0.025em] text-ink md:text-[75px] md:leading-[77px]">
+          <h1 className="font-display text-[45px] leading-[57px] tracking-[-0.025em] text-ink md:text-[75px] md:leading-[94px]">
             {HERO.title}
           </h1>
           <p className="max-w-[500px] text-[18px] leading-[27px] text-ink-soft md:text-[21px] md:leading-[32px]">

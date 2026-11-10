@@ -19,7 +19,7 @@ function NothingPublished() {
         className="h-[72px] w-[72px] rounded-pill border-2 border-ink bg-avatar object-cover"
       />
 
-      <h3 className="font-display text-[30px] leading-[37px] tracking-[-0.02em] text-ink md:text-[36px] md:leading-[44px]">
+      <h3 className="font-display text-[30px] leading-[38px] tracking-[-0.02em] text-ink md:text-[36px] md:leading-[45px]">
         Nothing here yet.
       </h3>
       <p className="max-w-[496px] text-[15px] leading-[25px] text-ink-soft md:text-[16px]">
@@ -68,7 +68,7 @@ export function ToolCards() {
                   </span>
                 </div>
 
-                <h3 className="font-display font-display-card text-[28px] leading-[31px] tracking-[-0.02em] text-ink md:text-[31px] md:leading-[35px] xl:leading-[34px]">
+                <h3 className="font-display font-display-card text-[28px] leading-[35px] tracking-[-0.02em] text-ink md:text-[31px] md:leading-[39px]">
                   {card.title}
                 </h3>
 
