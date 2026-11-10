@@ -73,11 +73,11 @@ export default function ZRouterPage() {
       <Reveal className="hidden md:block">
         <section className="py-16 md:py-20 xl:py-section">
           <Container>
-            <div className="flex flex-col gap-6 xl:flex-row xl:items-end xl:justify-between xl:gap-24">
-              <h2 className="max-w-[640px] font-display text-[50px] leading-[54px] tracking-[-0.02em] text-ink">
+            <div className="flex flex-col gap-6 xl:flex-row xl:items-end xl:justify-between xl:gap-16">
+              <h2 className="max-w-[640px] font-display text-[50px] leading-[54px] tracking-[-0.02em] text-ink xl:flex-1 xl:max-w-none xl:leading-[62px]">
                 {dashboard.heading}
               </h2>
-              <p className="max-w-[440px] text-[16px] leading-[25px] text-ink-soft xl:text-[17px] xl:leading-[27px]">
+              <p className="max-w-[440px] text-[16px] leading-[25px] text-ink-soft xl:w-[440px] xl:shrink-0 xl:text-[17px] xl:leading-[27px]">
                 {dashboard.body}
               </p>
             </div>
