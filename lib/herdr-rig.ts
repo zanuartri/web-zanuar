@@ -76,11 +76,11 @@ export const HERDR_RIG = {
   board: {
     heading: 'Everything on one board.',
     body: 'Tickets grouped by what they need from you: Needs you, Working, Ready, Queued, Done. Click Open to jump to an agent’s pane, and a toast tells you when something needs you. (Drawing of the real board.)',
-    src: '/herdr-rig/rig-board-1184.webp',
-    src2x: '/herdr-rig/rig-board-2368.webp',
-    src2xWidth: 2368,
-    width: 1184,
-    height: 680,
+    src: '/herdr-rig/rig-board-1080.webp',
+    src2x: '/herdr-rig/rig-board-2160.webp',
+    src2xWidth: 2160,
+    width: 1080,
+    height: 620,
     alt: 'Drawing of the rig board: four tickets working, one queued.',
   },
   tested: {
