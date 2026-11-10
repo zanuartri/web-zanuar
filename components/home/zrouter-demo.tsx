@@ -182,7 +182,7 @@ export function ZRouterDemo() {
 
   const reduce = useReducedMotion();
   const inView = useInView(cardRef);
-  const desktop = useMediaQuery('(min-width: 1280px)');
+  const desktop = useMediaQuery('(min-width: 1200px)');
   const visible = useDocumentVisible();
   const autoplay = desktop && inView && visible && !reduce;
 
@@ -271,8 +271,12 @@ export function ZRouterDemo() {
     const packet = packetRef.current;
     if (reduce) {
       if (packet) {
-        packet.setAttribute('transform', `translate(${STATIC_PACKET.x} ${STATIC_PACKET.y})`);
-        packet.style.opacity = '1';
+        if (nextUp) {
+          packet.style.opacity = '0';
+        } else {
+          packet.setAttribute('transform', `translate(${STATIC_PACKET.x} ${STATIC_PACKET.y})`);
+          packet.style.opacity = '1';
+        }
       }
       return;
     }
