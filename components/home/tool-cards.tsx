@@ -49,12 +49,12 @@ export function ToolCards() {
         {TOOL_CARDS.length === 0 ? (
           <NothingPublished />
         ) : (
-          <div className="grid gap-[14px] md:grid-cols-2 md:gap-[24px]">
+          <div className="grid gap-[14px] md:grid-cols-2 md:gap-[24px] xl:items-start xl:gap-[20px]">
             {TOOL_CARDS.map((card) => (
               <article
                 key={card.id}
                 id={card.id}
-                className="flex scroll-mt-[32px] flex-col gap-[10px] rounded-card-mobile border-2 border-ink bg-paper p-[24px] md:gap-[18px] md:rounded-card xl:p-card"
+                className="flex scroll-mt-[32px] flex-col gap-[10px] rounded-card-mobile border-2 border-ink bg-paper p-[24px] md:gap-[18px] md:rounded-card xl:gap-[14px] xl:rounded-[28px] xl:p-card"
               >
                 <div className="flex items-center justify-between gap-4">
                   <span className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-pill border-2 border-ink font-mono text-[15px] font-medium text-ink md:flex">
@@ -68,7 +68,7 @@ export function ToolCards() {
                   </span>
                 </div>
 
-                <h3 className="font-display font-display-card text-[28px] leading-[31px] tracking-[-0.02em] text-ink md:text-[31px] md:leading-[35px]">
+                <h3 className="font-display font-display-card text-[28px] leading-[31px] tracking-[-0.02em] text-ink md:text-[31px] md:leading-[35px] xl:leading-[34px]">
                   {card.title}
                 </h3>
 
