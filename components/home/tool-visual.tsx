@@ -3,7 +3,7 @@ import type { ToolCard } from '@/lib/content';
 import { cn } from '@/lib/utils';
 
 const base =
-  'relative hidden h-[122px] w-full flex-col items-center justify-center overflow-hidden rounded-[14.4px] bg-cream xl:flex';
+  'relative mt-auto hidden h-[122px] w-full flex-col items-center justify-center overflow-hidden rounded-[14.4px] bg-cream md:flex';
 
 function SkillsVisual() {
   return (
