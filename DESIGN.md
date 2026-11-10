@@ -36,9 +36,14 @@ Stroke: `outline` 2px, `tag` 1.5px.
 
 Space: `1` 4, `2` 8, `3` 12, `4` 16, `5` 24, `6` 36, `7` 56, `8` 96, `9` 128.
 The 390 mobile frame uses 20px side padding, which is outside this scale.
+The desktop layout adds its own steps: `card` 28 (card padding), `section` 72
+(between sections), `close` 48 (footer close line to its actions) and `footer`
+64 (footer bottom padding). Widths: `--content` 1080 and `--content-wide`
+1184.
 
 Type: `display` 76, `h1` 60, `h2` 50, `h3` 34, `h4` 27, `lead` 21,
-`body` 17, `small` 14, `mono` 14. Below 768 the display and heading scale
+`body` 17, `small` 14, `mono` 14, `close` 40 (the footer line, 40/44).
+Below 768 the display and heading scale
 multiplies by 0.86: 45, 34, 31, 24. Page heroes are the drawn exceptions:
 the homepage title is 75 desktop and 45 mobile, project titles are 117
 desktop and 65 mobile.
@@ -61,15 +66,20 @@ Fonts are loaded with `next/font/local` from `app/fonts/`.
 
 - Below 768: mobile, 390 design width, 20px side padding, one column.
 - 768 to 1199: tablet, one column, 48px side padding, tool cards 2 across.
-- 1200 and up: desktop, 1440 design width, 1184 content width, 128px side
-  padding.
+- 1200 and up: desktop, 1440 design width. Content below the hero sits on a
+  1080 grid centred in the page (x=180 at 1440). The nav and the homepage hero
+  keep the wider 1184 shell (x=128, avatar stage at x=842).
 
-`components/ui/container.tsx` implements this padding and max width. Use it for
-every page section instead of repeating the shell classes.
+`components/ui/container.tsx` implements both shells: by default it is the
+1080 content grid, and `wide` keeps the 1184 line for the nav and the hero.
+Use it for every page section instead of repeating the shell classes.
 
-On desktop, sections breathe with 88px of vertical padding, full-width bands
-use 80px, the footer starts 88px below its preceding section, and the homepage
-ZRouter teaser starts 56px below the guide index.
+On desktop, sections are separated by 72px: a normal section pads its bottom
+edge only, so its content ends 72 above the next section's content. Banded
+sections (How it will work, the dashboard concept) pad 72 top and bottom as
+well. The homepage hero keeps 64 below its art, the About band pads 56, and
+the footer takes 72 above and 64 below, with a 40px close line 48 above its
+actions. The homepage ZRouter teaser no longer adds its own top space.
 
 ## Components
 
@@ -81,6 +91,8 @@ ZRouter teaser starts 56px below the guide index.
 - `Tag`: status pill. `in-the-works` and `open-source` use peach-soft with a
   1.5px ink outline and ink text. `idea` uses cream with muted text and no
   outline. `live` uses ink with paper text and no outline.
+- Card: paper fill, 2px ink outline, `card` radius (32, 28 below 768), and the
+  28px `card` padding on desktop.
 - Focus ring: 2px ink with a 2px offset on every link and button. It is set
   globally in `app/globals.css`, so do not add per-component rings.
 
