@@ -26,7 +26,7 @@ export function NumberedSteps({
       className="scroll-mt-6 border-y-2 border-ink bg-paper py-16 md:py-20 xl:py-section"
     >
       <Container className="flex flex-col gap-[32px] md:gap-[40px] xl:gap-[48px]">
-        <h2 className="font-display text-[36px] leading-[39px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[52px]">
+        <h2 className="font-display text-[36px] leading-[39px] tracking-[-0.02em] text-ink md:text-[50px] md:leading-[52px] xl:leading-[51px]">
           {heading}
         </h2>
 
@@ -43,7 +43,7 @@ export function NumberedSteps({
               >
                 {index + 1}
               </span>
-              <h3 className="font-display text-[26px] leading-[32px] text-ink md:text-[27px] md:leading-[32px]">
+              <h3 className="font-display text-[26px] leading-[32px] text-ink md:text-[27px] md:leading-[32px] xl:leading-[33px]">
                 {item.title}
               </h3>
               <p className="text-[15px] leading-[24px] text-ink-soft md:text-[16px] md:leading-[25px]">
@@ -53,7 +53,7 @@ export function NumberedSteps({
           ))}
         </ol>
 
-        <div className="flex flex-col gap-4 border-t-[1.5px] border-line pt-[24px] xl:flex-row xl:items-center xl:gap-[10px]">
+        <div className="flex flex-col gap-4 border-t-[1.5px] border-line pt-[24px] xl:flex-row xl:items-center xl:gap-[10px] xl:min-h-[62.5px]">
           <p className="text-[15px] font-medium text-muted">{worksWithLabel}</p>
           <ul className="flex flex-wrap gap-[10px]">
             {worksWith.map((name) => (

@@ -1,4 +1,5 @@
 import { Container } from '@/components/ui/container';
+import { cn } from '@/lib/utils';
 
 export type ChecklistItem = {
   label: string;
@@ -13,6 +14,8 @@ export type ChecklistProps = {
   itemsMobile: readonly ChecklistItem[];
   /** Fill the first row's dot and raise its status, as on the ZRouter roadmap. */
   accentFirst?: boolean;
+  /** Extra desktop-only card classes, such as the frame's fixed card height. */
+  cardClassName?: string;
 };
 
 export function Checklist({
@@ -20,6 +23,7 @@ export function Checklist({
   items,
   itemsMobile,
   accentFirst = false,
+  cardClassName,
 }: ChecklistProps) {
   return (
     <section className="pb-14 md:pb-20 xl:pb-section">
@@ -28,7 +32,12 @@ export function Checklist({
           {heading}
         </h2>
 
-        <div className="rounded-card-mobile border-2 border-ink bg-paper px-[20px] py-[18px] md:rounded-card md:px-[32px] md:py-[12px]">
+        <div
+          className={cn(
+            'rounded-card-mobile border-2 border-ink bg-paper px-[20px] py-[18px] md:rounded-card md:px-[32px] md:py-[12px]',
+            cardClassName
+          )}
+        >
           <ul className="md:hidden">
             {itemsMobile.map((item) => (
               <li
@@ -60,7 +69,7 @@ export function Checklist({
                         : 'h-[22px] w-[22px] shrink-0 rounded-pill border-2 border-ink'
                     }
                   />
-                  <span className="flex-1 text-[17px] font-medium text-ink">
+                  <span className="flex-1 text-[17px] font-medium leading-[25.5px] text-ink xl:leading-[22px]">
                     {item.label}
                   </span>
                   <span

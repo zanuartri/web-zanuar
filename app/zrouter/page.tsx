@@ -99,6 +99,7 @@ export default function ZRouterPage() {
             heading={roadmap.heading}
             items={roadmap.items}
             itemsMobile={roadmap.itemsMobile}
+            cardClassName="xl:min-h-[410px]"
             accentFirst
           />
         </div>
