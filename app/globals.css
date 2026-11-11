@@ -202,6 +202,173 @@
   transition-delay: calc(var(--reveal-step) * 7);
 }
 
+/* Tool cards: hover and keyboard focus lift the card 3px over a hard 4px
+   peach offset shadow. The global :focus-visible ring stays untouched. */
+.tool-card {
+  transition-property: transform, box-shadow;
+  transition-duration: var(--motion-fast);
+  transition-timing-function: var(--motion-ease-out);
+}
+
+@media (hover: hover) {
+  .tool-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 0 var(--color-peach);
+  }
+}
+
+.tool-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 0 var(--color-peach);
+}
+
+/* Tool visuals: each plays once in view, then again on every card hover.
+   Framer Motion only sets data-tool-armed / data-tool-play; the sequences
+   are CSS and use transform/opacity only. */
+[data-tool-armed='true']:not([data-tool-play='true']) .tool-type-line,
+[data-tool-armed='true']:not([data-tool-play='true']) .tool-pulse,
+[data-tool-armed='true']:not([data-tool-play='true']) .tool-chip,
+[data-tool-armed='true']:not([data-tool-play='true']) .tool-command,
+[data-tool-armed='true']:not([data-tool-play='true']) .tool-toggle,
+[data-tool-armed='true']:not([data-tool-play='true']) .tool-toggle-knob {
+  opacity: 0;
+}
+
+.tool-chip:nth-child(1) {
+  --tool-chip-from: -48px;
+}
+
+.tool-chip:nth-child(2) {
+  --tool-chip-from: -24px;
+}
+
+.tool-chip:nth-child(3) {
+  --tool-chip-from: 0px;
+}
+
+.tool-chip:nth-child(4) {
+  --tool-chip-from: 24px;
+}
+
+.tool-chip:nth-child(5) {
+  --tool-chip-from: 48px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-tool-play='true'] .tool-type-line {
+    animation: tool-type-line var(--motion-base) var(--motion-ease-out) both;
+  }
+
+  [data-tool-play='true'] .tool-pulse {
+    animation: tool-pulse var(--motion-slow) var(--motion-ease-out) both;
+  }
+
+  [data-tool-play='true'] .tool-chip {
+    animation: tool-chip-in var(--motion-base) var(--motion-ease-out) both;
+  }
+
+  [data-tool-play='true'] .tool-command {
+    animation: tool-command-in var(--motion-base) var(--motion-ease-out) both;
+  }
+
+  [data-tool-play='true'] .tool-toggle-fill {
+    animation: tool-toggle-on var(--motion-base) var(--motion-ease-out) both;
+  }
+
+  [data-tool-play='true'] .tool-toggle-knob {
+    animation: tool-toggle-knob var(--motion-base) var(--motion-ease-out) both;
+  }
+}
+
+/* Delays come after the animation shorthands so they win the cascade. */
+[data-tool-play='true'] .tool-delay-1 {
+  animation-delay: var(--motion-stagger);
+}
+
+[data-tool-play='true'] .tool-delay-2 {
+  animation-delay: calc(var(--motion-stagger) * 2);
+}
+
+[data-tool-play='true'] .tool-delay-3 {
+  animation-delay: calc(var(--motion-stagger) * 3);
+}
+
+[data-tool-play='true'] .tool-delay-4 {
+  animation-delay: calc(var(--motion-stagger) * 4);
+}
+
+[data-tool-play='true'] .tool-delay-5 {
+  animation-delay: calc(var(--motion-stagger) * 5);
+}
+
+@keyframes tool-type-line {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* The pulse ring runs agent, plugin, tools on the 60ms stagger. */
+@keyframes tool-pulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.74);
+  }
+  40% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.16);
+  }
+}
+
+/* The five chips start spread apart and slide together. */
+@keyframes tool-chip-in {
+  from {
+    opacity: 0;
+    transform: translateX(var(--tool-chip-from, 0px));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes tool-command-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Toggle on: the cream cover fades while the knob slides right. */
+@keyframes tool-toggle-on {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes tool-toggle-knob {
+  from {
+    transform: translateX(-16px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 @keyframes avatar-tilt {
   from {
     opacity: 0;

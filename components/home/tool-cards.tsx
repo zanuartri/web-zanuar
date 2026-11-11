@@ -1,8 +1,11 @@
+'use client';
+
 import Image from 'next/image';
+import { useState } from 'react';
 import { buttonVariants } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import { Tag } from '@/components/ui/tag';
-import { TOOL_CARDS } from '@/lib/content';
+import { TOOL_CARDS, type ToolCard } from '@/lib/content';
 import { SOCIAL_LINKS } from '@/lib/site';
 import { cn } from '@/lib/utils';
 import { ToolVisual } from './tool-visual';
@@ -42,6 +45,44 @@ function NothingPublished() {
   );
 }
 
+function ToolCardItem({ card }: { card: ToolCard }) {
+  const [playKey, setPlayKey] = useState(0);
+
+  return (
+    <article
+      id={card.id}
+      tabIndex={0}
+      onPointerEnter={() => setPlayKey((key) => key + 1)}
+      className="tool-card flex h-full scroll-mt-[32px] flex-col gap-[10px] rounded-card-mobile border-2 border-ink bg-paper p-[24px] md:gap-[18px] md:rounded-card xl:gap-[14px] xl:rounded-[28px] xl:p-card"
+    >
+      <div className="flex items-center justify-between gap-4">
+        <span className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-pill border-2 border-ink font-mono text-[15px] font-medium text-ink md:flex">
+          {card.number}
+        </span>
+        <span className="text-[13px] font-semibold text-muted md:hidden">
+          {card.number} · {card.tag}
+        </span>
+        <span className="hidden md:block">
+          <Tag variant="idea">{card.tag}</Tag>
+        </span>
+      </div>
+
+      <h3 className="font-display font-display-card text-[28px] leading-[35px] tracking-[-0.02em] text-ink md:text-[31px] md:leading-[39px]">
+        {card.title}
+      </h3>
+
+      <p className="text-[15px] leading-[23px] text-ink-soft md:hidden">
+        {card.bodyMobile}
+      </p>
+      <p className="hidden text-[16px] leading-[25px] text-ink-soft md:block">
+        {card.body}
+      </p>
+
+      <ToolVisual kind={card.visual} playKey={playKey} />
+    </article>
+  );
+}
+
 export function ToolCards() {
   return (
     <section aria-label="Smaller tools" className="pb-14 md:pb-20 xl:pb-section">
@@ -51,36 +92,7 @@ export function ToolCards() {
         ) : (
           <div className="grid gap-[14px] md:grid-cols-2 md:gap-[24px] xl:gap-[20px]">
             {TOOL_CARDS.map((card) => (
-              <article
-                key={card.id}
-                id={card.id}
-                className="flex h-full scroll-mt-[32px] flex-col gap-[10px] rounded-card-mobile border-2 border-ink bg-paper p-[24px] md:gap-[18px] md:rounded-card xl:gap-[14px] xl:rounded-[28px] xl:p-card"
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <span className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-pill border-2 border-ink font-mono text-[15px] font-medium text-ink md:flex">
-                    {card.number}
-                  </span>
-                  <span className="text-[13px] font-semibold text-muted md:hidden">
-                    {card.number} · {card.tag}
-                  </span>
-                  <span className="hidden md:block">
-                    <Tag variant="idea">{card.tag}</Tag>
-                  </span>
-                </div>
-
-                <h3 className="font-display font-display-card text-[28px] leading-[35px] tracking-[-0.02em] text-ink md:text-[31px] md:leading-[39px]">
-                  {card.title}
-                </h3>
-
-                <p className="text-[15px] leading-[23px] text-ink-soft md:hidden">
-                  {card.bodyMobile}
-                </p>
-                <p className="hidden text-[16px] leading-[25px] text-ink-soft md:block">
-                  {card.body}
-                </p>
-
-                <ToolVisual kind={card.visual} />
-              </article>
+              <ToolCardItem key={card.id} card={card} />
             ))}
           </div>
         )}
