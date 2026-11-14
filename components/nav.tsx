@@ -74,7 +74,7 @@ export function Nav() {
                 'text-[16px] text-ink transition-colors duration-fast hover:text-ink-soft',
                 isActive(href)
                   ? 'font-semibold underline decoration-2 underline-offset-4'
-                  : 'font-medium'
+                  : 'link-draw font-medium'
               )}
             >
               {label}

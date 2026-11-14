@@ -480,3 +480,13 @@
     animation: none;
   }
 }
+
+/* link underline draw: peach line grows left to right on hover */
+.link-draw {
+  background: linear-gradient(var(--color-peach), var(--color-peach)) 0 100% / 0 2px no-repeat;
+  transition: background-size var(--motion-base) var(--motion-ease-out), color var(--motion-fast);
+}
+.link-draw:hover,
+.link-draw:focus-visible {
+  background-size: 100% 2px;
+}

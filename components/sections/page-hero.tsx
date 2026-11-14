@@ -35,7 +35,7 @@ export function PageHero({
         >
           <Link
             href="/"
-            className="transition-colors duration-fast hover:text-ink"
+            className="link-draw transition-colors duration-fast hover:text-ink"
           >
             The guide
           </Link>

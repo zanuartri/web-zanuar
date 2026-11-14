@@ -3,14 +3,14 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex h-[58px] items-center justify-center rounded-pill border-2 px-[28px] text-[17px] font-semibold leading-[22px] transition-all duration-fast ease-out disabled:pointer-events-none disabled:translate-y-0 disabled:shadow-none',
+  'inline-flex h-[58px] items-center justify-center rounded-pill border-2 px-[28px] text-[17px] font-semibold leading-[22px] transition-[transform,box-shadow,background-color] duration-fast ease-[var(--motion-ease-pop)] active:duration-75 active:scale-[0.97] disabled:pointer-events-none disabled:translate-y-0 disabled:shadow-none',
   {
     variants: {
       variant: {
         primary:
-          'border-ink bg-ink text-paper hover:-translate-y-0.5 hover:shadow-[0_4px_0_var(--color-peach)] active:translate-y-0 active:bg-ink-soft active:shadow-none disabled:border-faint disabled:bg-cream disabled:text-faint',
+          'border-ink bg-ink text-paper hover:-translate-y-0.5 hover:shadow-[0_4px_0_var(--color-peach)] active:translate-y-px active:bg-ink-soft active:shadow-none disabled:border-faint disabled:bg-cream disabled:text-faint',
         secondary:
-          'border-ink bg-paper text-ink hover:-translate-y-0.5 hover:bg-peach-soft hover:shadow-[0_4px_0_var(--color-peach)] active:translate-y-0 active:bg-peach-soft active:shadow-none disabled:border-faint disabled:bg-paper disabled:text-faint',
+          'border-ink bg-paper text-ink hover:-translate-y-0.5 hover:bg-peach-soft hover:shadow-[0_4px_0_var(--color-peach)] active:translate-y-px active:bg-peach-soft active:shadow-none disabled:border-faint disabled:bg-paper disabled:text-faint',
       },
     },
     defaultVariants: {

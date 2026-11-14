@@ -60,7 +60,7 @@ export function Footer() {
               href={SOCIAL_LINKS.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors duration-fast hover:text-ink"
+              className="link-draw transition-colors duration-fast hover:text-ink"
             >
               GitHub
             </a>
@@ -68,7 +68,7 @@ export function Footer() {
               href={xHref}
               target={xHref ? '_blank' : undefined}
               rel={xHref ? 'noopener noreferrer' : undefined}
-              className="transition-colors duration-fast hover:text-ink"
+              className="link-draw transition-colors duration-fast hover:text-ink"
             >
               X
             </a>
