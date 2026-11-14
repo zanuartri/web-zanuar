@@ -139,32 +139,74 @@ function Connector({
   );
 }
 
-function MobileProvider({
-  label,
-  state,
-  live,
-  down,
-}: {
-  label: string;
-  state: string;
-  live: boolean;
-  down?: boolean;
-}) {
+function MobileProvider({ label, state, live }: { label: string; state: string; live: boolean }) {
   return (
     <div
       className={cn(
-        'flex h-[65px] flex-col items-center justify-center gap-1 rounded-[20px] border-2 px-2 py-3 text-center transition-colors duration-slow ease-out',
-        live ? 'border-ink bg-peach-soft text-ink' : 'border-ink bg-paper text-ink',
-        down && 'border-dashed border-faint bg-cream text-faint'
+        'flex h-[64px] flex-col items-center justify-center gap-1 rounded-[20px] border-2 font-mono transition-colors duration-slow ease-out',
+        live ? 'border-ink bg-peach-soft text-ink' : 'border-dashed border-faint bg-cream text-faint'
       )}
     >
-      <span className={cn('font-mono text-[13px] font-medium', down && 'line-through')}>
+      <span className="flex items-center gap-2 text-[14px] font-medium">
+        <span
+          aria-hidden
+          className={cn('h-2 w-2 rounded-full', live ? 'border-[1.5px] border-ink bg-peach' : 'bg-faint')}
+        />
         {label}
       </span>
-      <span className={cn('font-mono text-[12px]', down ? 'text-faint' : live ? 'text-ink' : 'text-faint')}>
-        {state}
-      </span>
+      <span className="text-[12px]">{state}</span>
     </div>
+  );
+}
+
+// Lines run edge to edge between the pills, so the route never floats. The
+// live branch is peach with a packet on it, the idle one dashed.
+function MobileFork({ up }: { up: boolean }) {
+  const branch = (live: boolean) =>
+    cn('transition-[stroke] duration-slow ease-out', live ? 'stroke-peach' : 'stroke-faint');
+  return (
+    <svg aria-hidden viewBox="0 0 310 210" className="absolute inset-0 h-full w-full" fill="none">
+      <path d="M155 44 V64" strokeWidth={2.5} className="stroke-ink" />
+      <path
+        d="M155 108 V120 Q155 126 147 126 H83 Q75 126 75 134 V146"
+        strokeWidth={up ? 3 : 2.5}
+        strokeDasharray={up ? undefined : '4 5'}
+        className={branch(up)}
+      />
+      <path
+        d="M155 108 V120 Q155 126 163 126 H227 Q235 126 235 134 V146"
+        strokeWidth={up ? 2.5 : 3}
+        strokeDasharray={up ? '4 5' : undefined}
+        className={branch(!up)}
+      />
+      <circle
+        cx={up ? 115 : 195}
+        cy={126}
+        r={4}
+        strokeWidth={2}
+        className="fill-peach stroke-ink transition-[cx] duration-slow ease-out"
+      />
+    </svg>
+  );
+}
+
+function SegmentedToggle({ up, onToggle }: { up: boolean; onToggle: () => void }) {
+  const seg = (active: boolean) =>
+    cn(
+      'flex h-[36px] items-center rounded-pill px-[18px] transition-colors duration-fast ease-out',
+      active ? 'bg-ink text-paper' : 'text-muted'
+    );
+  return (
+    <button
+      type="button"
+      aria-pressed={up}
+      aria-label="Provider A up"
+      onClick={onToggle}
+      className="inline-flex items-center gap-1 rounded-pill border-2 border-ink bg-cream p-1 text-[14px] font-semibold"
+    >
+      <span className={seg(up)}>Up</span>
+      <span className={seg(!up)}>Down</span>
+    </button>
   );
 }
 
@@ -444,33 +486,27 @@ export function ZRouterDemo() {
         </p>
       </div>
 
-      <div className="flex flex-col items-center gap-[10px] xl:hidden">
-        <Toggle up={up} onToggle={toggle} compact />
-        <span aria-hidden className="h-2 w-0.5 bg-ink" />
-        <div className="flex h-[46px] w-[132px] items-center justify-center rounded-pill border-2 border-ink bg-paper font-mono text-[14px] font-medium text-ink">
-          your agent
-        </div>
-        <span aria-hidden className="h-[22px] w-[2.5px] bg-ink" />
-        <div className="flex h-[45px] w-[114px] items-center justify-center rounded-pill bg-ink font-sans text-[16px] font-bold text-paper">
-          ZRouter
-        </div>
-        <span aria-hidden className="h-[22px] w-[2.5px] bg-peach" />
-
-        <div className="grid w-full max-w-[306px] grid-cols-2 gap-[10px]">
-          <MobileProvider
-            label="provider a"
-            state={up ? 'answering' : 'taking a nap'}
-            live={up}
-            down={!up}
-          />
-          <MobileProvider
-            label="kenari.id"
-            state={up ? 'on standby' : 'still answering'}
-            live={!up}
-          />
+      <div className="flex flex-col gap-[18px] xl:hidden">
+        <div className="flex items-center justify-between">
+          <span className="text-[15px] font-medium text-ink-soft">Provider A is</span>
+          <SegmentedToggle up={up} onToggle={toggle} />
         </div>
 
-        <p aria-live="polite" className="max-w-[306px] text-center text-[13px] leading-[19px] text-muted">
+        <div className="relative mx-auto h-[210px] w-full max-w-[310px]">
+          <MobileFork up={up} />
+          <div className="absolute left-1/2 top-0 flex h-[44px] w-[132px] -translate-x-1/2 items-center justify-center rounded-pill border-2 border-ink bg-white font-mono text-[14px] font-medium text-ink">
+            your agent
+          </div>
+          <div className="absolute left-1/2 top-[64px] flex h-[44px] w-[114px] -translate-x-1/2 items-center justify-center rounded-pill bg-ink font-sans text-[16px] font-bold text-paper">
+            ZRouter
+          </div>
+          <div className="absolute inset-x-0 top-[146px] grid grid-cols-2 gap-[10px]">
+            <MobileProvider label="provider a" state={up ? 'answering' : 'taking a nap'} live={up} />
+            <MobileProvider label="kenari.id" state={up ? 'on standby' : 'answering'} live={!up} />
+          </div>
+        </div>
+
+        <p aria-live="polite" className="text-[13px] leading-[19px] text-muted">
           {up ? NOTE_UP_MOBILE : NOTE_DOWN_MOBILE}
         </p>
       </div>
