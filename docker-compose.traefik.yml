@@ -1,6 +1,8 @@
-# Draft: replaces the Caddy-based docker-compose.yml once the shared Traefik
-# instance (vps-infra) is up and ready to take over ports 80/443. Not applied yet -
-# see vps-infra/README.md "Migrating zanuar.dev off Caddy" for the cutover order.
+# Production compose for zanuar.dev. The shared Traefik in ~/vps-infra owns
+# ports 80/443 and routes to this container via the labels below. Deploy with:
+#   sudo docker compose -f docker-compose.traefik.yml up -d --build
+# Do NOT use the plain docker-compose.yml on the VPS: it drops these labels and
+# zanuar.dev returns 404 (happened 2026-11-25).
 services:
   web:
     build: .

@@ -1,3 +1,4 @@
+# LEGACY: only used by docker-compose.yml. Production routing/TLS is Traefik (vps-infra).
 zanuar.dev, www.zanuar.dev {
 	reverse_proxy web:3000
 }

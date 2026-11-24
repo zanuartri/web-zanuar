@@ -22,7 +22,8 @@ extend the existing one.
 Next.js (App Router, `output: 'standalone'`), TypeScript, Tailwind CSS,
 Framer Motion, hand-authored shadcn-style primitives in `components/ui/`
 (no external UI library). Live at [zanuar.dev](https://zanuar.dev), deployed
-via Docker Compose to a self-hosted VPS behind Caddy (auto TLS), not Vercel,
+via Docker Compose to a self-hosted VPS behind the shared Traefik in
+`vps-infra` (auto TLS), not Vercel,
 so avoid Vercel-only features. VPS access details live outside this repo,
 ask the user if you need to deploy something and don't have them.
 
@@ -54,11 +55,13 @@ ask the user if you need to deploy something and don't have them.
   transitions; anything scripted reads `useReducedMotion` too.
 - Don't push commits or open PRs without being asked. Committing locally
   when asked is fine; pushing/creating remote repos is a separate ask.
-- **`Caddyfile` is bind-mounted into the `caddy` container on the VPS.**
-  After a `git pull` there, a plain `docker compose restart caddy` (or
-  `caddy reload`) won't pick up the new file, `git`'s atomic rename orphans
-  the container's mount from the old inode. Use
-  `docker compose up -d --force-recreate caddy`.
+- **Deploy on the VPS (`~/web-zanuar`) with
+  `sudo docker compose -f docker-compose.traefik.yml up -d --build`.**
+  Traefik (from `~/vps-infra`) owns 80/443 and routes by the labels in that
+  file. Plain `docker compose up` uses the legacy `docker-compose.yml`, which
+  drops the labels and makes zanuar.dev 404 (happened 2026-11-25).
+  `docker-compose.yml` and `Caddyfile` are legacy (pre-Traefik), unused in
+  production.
 
 ## Key files
 
