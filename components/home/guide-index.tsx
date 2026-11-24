@@ -55,10 +55,10 @@ export function GuideIndex() {
 
                     <span
                       className={cn(
-                        'flex-1 font-display font-display-row text-ink transition-transform duration-fast ease-out xl:group-hover:translate-x-1',
+                        'flex-1 font-display text-ink transition-transform duration-fast ease-out xl:group-hover:translate-x-1',
                         isStack
-                          ? 'text-[16px] font-normal leading-[27px] md:text-[20px] md:font-normal md:leading-[27px]'
-                          : 'text-[18px] font-semibold leading-[44px] md:text-[21px] md:leading-tight'
+                          ? 'display-auto text-[16px] font-normal leading-[27px] md:text-[20px] md:font-normal md:leading-[27px]'
+                          : 'display-index-row text-[18px] font-[560] leading-[26px] md:text-[21px] md:leading-[26px]'
                       )}
                     >
                       {!isStack && <span className="mr-3 md:hidden">{entry.number}</span>}

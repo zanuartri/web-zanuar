@@ -50,7 +50,7 @@ export function ZanuarStackSection() {
         <div className="xl:grid xl:grid-cols-[500px_515px] xl:justify-between">
           <div className="flex flex-col">
             <p className="font-mono text-[13px] leading-[18px] text-ink">{ZANUAR_STACK.label}</p>
-            <h2 className="font-display font-display-auto mt-[9px] text-[37px] font-[560] leading-[43px] tracking-normal text-ink xl:text-[46px] xl:leading-[51px]">
+            <h2 className="font-display display-auto mt-[9px] text-[37px] font-[560] leading-[43px] tracking-normal text-ink xl:text-[46px] xl:leading-[51px]">
               {ZANUAR_STACK.title}
             </h2>
             <p className="mt-[28px] text-[20px] leading-[28px] text-ink xl:mt-[25px] xl:text-[22px]">

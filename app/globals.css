@@ -108,13 +108,20 @@
     font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 144;
   }
 
-  .font-display-row {
-    font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 72;
+  /* Named without the `font-` prefix: tailwind-merge treats `font-*` names as
+     font-family utilities and would drop `font-display` next to them. */
+  .display-auto {
+    font-variation-settings: 'SOFT' 100, 'WONK' 0;
   }
 
-  /* Fraunces at its default optical size: wider than the 144 display cut. */
-  .font-display-auto {
-    font-variation-settings: 'SOFT' 100, 'WONK' 0;
+  .display-index-row {
+    font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 48;
+  }
+
+  @media (min-width: 768px) {
+    .display-index-row {
+      font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 72;
+    }
   }
 
   @media (min-width: 1200px) {
