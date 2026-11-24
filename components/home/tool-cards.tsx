@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { buttonVariants } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
@@ -68,13 +69,22 @@ function ToolCardItem({ card }: { card: ToolCard }) {
       </div>
 
       <h3 className="font-display font-display-card text-[28px] leading-[35px] tracking-[-0.02em] text-ink md:text-[31px] md:leading-[39px]">
-        {card.title}
+        {card.href ? (
+          <Link
+            href={card.href}
+            className="transition-colors duration-fast ease-out hover:text-ink-soft"
+          >
+            {card.title}
+          </Link>
+        ) : (
+          card.title
+        )}
       </h3>
 
       <p className="text-[15px] leading-[23px] text-ink-soft md:hidden">
         {card.bodyMobile}
       </p>
-      <p className="hidden text-[16px] leading-[25px] text-ink-soft md:block">
+      <p className="hidden text-[16px] leading-[25px] text-ink-soft md:block xl:min-h-[70px]">
         {card.body}
       </p>
 

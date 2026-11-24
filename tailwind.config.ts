@@ -20,6 +20,8 @@ const config: Config = {
         'peach-soft': 'var(--color-peach-soft)',
         rust: 'var(--color-rust)',
         skeleton: 'var(--color-skeleton)',
+        highlight: 'var(--color-highlight)',
+        connector: 'var(--color-connector)',
         avatar: 'var(--color-avatar)',
       },
       borderRadius: {

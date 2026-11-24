@@ -5,47 +5,68 @@ export const HERO = {
   avatarAlt: 'Illustration of Zanuar',
 } as const;
 
+export const GUIDE_SUMMARY =
+  'Six moments that break a coding session, and the tools I build for them.';
+
 export type GuideEntry = {
   number: number;
   title: string;
   meta: string;
   href: string;
-  isProject?: boolean;
+  metaStyle?: 'accent' | 'tag';
 };
 
 export const GUIDE_ENTRIES: readonly GuideEntry[] = [
   {
     number: 1,
-    title: 'When a provider goes down',
-    meta: 'ZRouter',
-    href: '#zrouter',
-    isProject: true,
+    title: 'When one agent isn’t enough',
+    meta: 'zanuar-stack',
+    href: '#zanuar-stack',
+    metaStyle: 'accent',
   },
   {
     number: 2,
+    title: 'When a provider goes down',
+    meta: 'ZRouter',
+    href: '#zrouter',
+    metaStyle: 'tag',
+  },
+  {
+    number: 3,
     title: 'When it forgets how you work',
     meta: 'Agent skills',
     href: '#skills',
   },
   {
-    number: 3,
+    number: 4,
     title: 'When it can’t reach your tools',
     meta: 'Plugins and MCP',
     href: '#plugins',
   },
   {
-    number: 4,
+    number: 5,
     title: 'When the same steps repeat',
     meta: 'CLI tools',
     href: '#cli',
   },
   {
-    number: 5,
-    title: "When one agent isn't enough",
+    number: 6,
+    title: 'When your team works in Herdr',
     meta: 'herdr-rig',
     href: '#herdr',
   },
 ];
+
+export const ZANUAR_STACK = {
+  label: '01 / OPEN SOURCE',
+  title: 'When one agent isn’t enough.',
+  name: 'zanuar-stack',
+  pitch:
+    'An open-source skill pack that gives coding agents clear roles, from a worker and reviewer on one ticket to a manager per repo for larger jobs.',
+  diagramLabel: 'MULTI-REPO WORK',
+  diagramDescription:
+    'An orchestrator points one repo manager at each repo for multi-repo work. The manager coordinates a worker and a reviewer on one ticket.',
+} as const;
 
 export type ToolTag = 'Idea' | 'Open source';
 
@@ -57,12 +78,13 @@ export type ToolCard = {
   body: string;
   bodyMobile: string;
   visual: 'skills' | 'plugins' | 'cli' | 'herdr';
+  href?: string;
 };
 
 export const TOOL_CARDS: readonly ToolCard[] = [
   {
     id: 'skills',
-    number: 2,
+    number: 3,
     title: 'When it forgets how you work.',
     tag: 'Idea',
     body: 'Agent skills that write your habits down once. First ideas: one that learns a repo’s conventions, one that reviews a diff before you commit.',
@@ -72,7 +94,7 @@ export const TOOL_CARDS: readonly ToolCard[] = [
   },
   {
     id: 'plugins',
-    number: 3,
+    number: 4,
     title: 'When it can’t reach your tools.',
     tag: 'Idea',
     body: 'Claude Code plugins and MCP servers. First ideas: a ZRouter plugin that shows which provider answered and what it cost, and an issue-to-branch server.',
@@ -82,7 +104,7 @@ export const TOOL_CARDS: readonly ToolCard[] = [
   },
   {
     id: 'cli',
-    number: 4,
+    number: 5,
     title: 'When the same steps repeat.',
     tag: 'Idea',
     body: 'Small command-line tools. First ideas: one that sums up what the agent changed, one that packs repo context for a prompt.',
@@ -92,18 +114,19 @@ export const TOOL_CARDS: readonly ToolCard[] = [
   },
   {
     id: 'herdr',
-    number: 5,
-    title: "When one agent isn't enough.",
+    number: 6,
+    title: 'When your team works in Herdr.',
     tag: 'Open source',
-    body: 'herdr-rig: one manager agent writes tickets, hands them to worker and reviewer agents, and shows them on a board in Herdr.',
+    body: 'herdr-rig gives a manager, workers and reviewers a shared workflow in Herdr.',
     bodyMobile:
-      'herdr-rig: one manager agent hands tickets to workers and reviewers, on a board in Herdr.',
+      'herdr-rig coordinates tickets, workers and reviewers in a Herdr workspace.',
     visual: 'herdr',
+    href: '/herdr-rig',
   },
 ];
 
 export const ZROUTER = {
-  number: '1',
+  number: '2',
   status: 'In the works',
   title: 'When a provider goes down.',
   lead: 'Your agent is halfway through a task when the provider starts failing. ZRouter, the one I’m building now, hands the request to the next provider and keeps the context and cache it already had.',
