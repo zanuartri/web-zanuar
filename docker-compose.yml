@@ -1,3 +1,6 @@
+# LEGACY: the old Caddy-based setup, no longer used in production (Traefik in
+# vps-infra serves zanuar.dev, see docker-compose.traefik.yml). Kept for
+# standalone use only. Do not run this on the VPS.
 services:
   web:
     build: .

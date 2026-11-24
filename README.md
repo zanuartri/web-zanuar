@@ -4,8 +4,8 @@ Live at **[zanuar.dev](https://zanuar.dev)**.
 
 Personal portfolio for an AI agent engineering career transition (QA
 Automation Engineer → AI Agent Engineer). Built with Next.js App Router,
-TypeScript, and Tailwind CSS, self-hosted on a VPS behind Caddy rather than
-deployed to Vercel.
+TypeScript, and Tailwind CSS, self-hosted on a VPS behind a shared Traefik reverse
+proxy rather than deployed to Vercel.
 
 See **[DESIGN.md](./DESIGN.md)** for the visual design system and content
 rules, and **[CLAUDE.md](./CLAUDE.md)** for AI-assisted development
@@ -18,8 +18,8 @@ conventions used on this repo.
 - Hand-authored shadcn-style primitives (`components/ui/`), no external UI
   component library
 - Docker multi-stage build with `output: 'standalone'`, deployed via
-  `docker-compose.yml` with a Caddy reverse proxy (automatic Let's Encrypt
-  TLS)
+  `docker-compose.traefik.yml` behind the shared Traefik in `vps-infra`
+  (automatic Let's Encrypt TLS)
 
 ## Getting started
 
@@ -66,14 +66,21 @@ docker compose up -d --build
 ```
 
 The `Dockerfile` is a multi-stage build producing a minimal runtime image via
-Next.js `standalone` output. `docker-compose.yml` runs two services: `web`
-(not exposed on a host port) and `caddy` (bound to 80/443), which
-reverse-proxies to `web` and auto-provisions TLS for the hostnames listed in
-`Caddyfile`. Extend `docker-compose.yml` with additional services for
-per-project demo subdomains as those get built.
+Next.js `standalone` output. In production, the shared Traefik instance from
+`vps-infra` owns ports 80/443 and routes `zanuar.dev` / `www.zanuar.dev` to the
+`web` container using the labels in `docker-compose.traefik.yml`. On the VPS
+(`~/web-zanuar`), deploy with:
 
-**Note:** `Caddyfile` is bind-mounted into the `caddy` container. If you edit
-it after a `git pull` on the server, `docker compose restart caddy` isn't
-enough, atomic file replacement (which `git` does) orphans the container's
-mount from the old inode. Use `docker compose up -d --force-recreate caddy`
-instead.
+```bash
+git pull
+sudo docker compose -f docker-compose.traefik.yml up -d --build
+```
+
+Always pass `-f docker-compose.traefik.yml`. The plain `docker-compose.yml`
+starts `web` without the Traefik labels, so zanuar.dev returns 404.
+
+**Legacy:** `docker-compose.yml` and `Caddyfile` are the old Caddy-based setup
+from before the Traefik migration. Production no longer uses them; they are
+kept only for standalone use. If you do run them, `Caddyfile` is bind-mounted,
+so after a `git pull` use `docker compose up -d --force-recreate caddy`
+rather than a restart.
