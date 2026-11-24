@@ -15,6 +15,9 @@
   --color-peach-soft: #f6cdbb;
   --color-rust: #9a5a3e;
   --color-skeleton: #e6daca;
+  /* chapter 1 accent and diagram connectors */
+  --color-highlight: #f6d577;
+  --color-connector: #ae9d88;
   /* matches the background baked into avatar.png */
   --color-avatar: #ede0cc;
 
@@ -105,8 +108,20 @@
     font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 144;
   }
 
-  .font-display-row {
-    font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 72;
+  /* Named without the `font-` prefix: tailwind-merge treats `font-*` names as
+     font-family utilities and would drop `font-display` next to them. */
+  .display-auto {
+    font-variation-settings: 'SOFT' 100, 'WONK' 0;
+  }
+
+  .display-index-row {
+    font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 48;
+  }
+
+  @media (min-width: 768px) {
+    .display-index-row {
+      font-variation-settings: 'SOFT' 100, 'WONK' 0, 'opsz' 72;
+    }
   }
 
   @media (min-width: 1200px) {

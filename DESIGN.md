@@ -30,6 +30,8 @@ Color:
 | `color/peach-soft` | `#F6CDBB` | Live fills, status pills |
 | `color/rust` | `#9A5A3E` | Local gateways eyebrow on peach-soft |
 | `color/skeleton` | `#E6DACA` | Loading blocks |
+| `color/highlight` | `#F6D577` | Chapter 1 accent: repo manager node, project label in the guide index |
+| `color/connector` | `#AE9D88` | Diagram connector lines |
 
 Radius: `card` 32, `card-mobile` 28, `inner` 20, `pill` 999.
 Stroke: `outline` 2px, `tag` 1.5px.
